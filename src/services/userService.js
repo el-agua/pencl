@@ -27,14 +27,14 @@ function getUsernames(username) {
     username: username,
   };
   return axios
-    .post(`/api/users/checkAccount`, sendUser)
+    .post(`https://rocky-sierra-96058.herokuapp.com/api/users/checkAccount`, sendUser)
     .then((u) => u.data.available)
     .catch((e) => e);
 }
 
 function login(user) {
   return axios
-    .post(`/api/users/login`, user)
+    .post(`https://rocky-sierra-96058.herokuapp.com/api/users/login`, user)
     .then((u) => u)
     .catch((e) => e);
 }
@@ -48,7 +48,7 @@ function logout() {
 
 function session(){
     return axios
-    .post(`/api/users/sessionAccount`)
+    .post(`https://rocky-sierra-96058.herokuapp.com/api/users/sessionAccount`)
     .then(u=> u.data)
     .catch(e=>e)
 }
