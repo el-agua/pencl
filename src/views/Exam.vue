@@ -1,0 +1,136 @@
+<template>
+<section class="section">
+  <Timer :timerStart="timerStart" @timesUp="finishTest" :duration="duration" />
+ <DisplayQuestion ref="questionModel" @answerSend="appendAnswer" v-for="question in questions"  :key="question.index" :number="question.index" :statement="question.statement"/>
+  <div class="columns is-centered">
+  <div class="buttons">
+    <b-button @click="submitTest" class="is-triple">
+      Submit
+      </b-button>
+  </div>
+  </div>
+ </section>
+</template>
+
+<script>
+// @ is an alias to /src
+import DisplayQuestion from '../components/DisplayQuestion'
+import Timer from '../components/Timer'
+import {questionService} from '../services/questionService'
+import {contestService} from '../services/contestService'
+import router from '../router'
+
+export default {
+  name: 'Exam',
+  components: {
+    DisplayQuestion,
+    Timer
+  },
+  props:['user', 'testID'],
+    data(){
+        return{
+            answers: [],
+            setId: '',
+            duration: 2400,
+            questions: [],
+            timerStart: Date.now(),
+            counter: 0,
+            submit: false
+        }
+    },
+    methods:{
+      loadTheMath(){
+          contestService.loadMath(this.testID).then(id => {
+           console.log(id.duration)
+           console.log('Hello')
+          contestService.autosave(this.$route.params.userID,this.testID,this.answers)
+          .then(obj =>{
+            console.log(obj)
+            if (Date.now() - obj.timerStart >= id.duration*60000 | obj.finished == true){
+              console.log(obj.finished)
+                this.finishTest()
+            }else{
+            this.timerStart = obj.timerStart
+            console.log(obj)
+            this.duration = id.duration * 60
+            questionService.getContestSet(id.setId).then(q => {
+            console.log(q)
+            this.questions = q.question
+            for (let i=0; i<(this.questions.length); i++){
+            this.answers.push('')
+            }
+        console.log('Hello')
+        setInterval(()=>{for (let i=0; i<(this.questions.length); i++){
+                this.$refs.questionModel[i].sendAnswer()
+                console.log('Hello')
+        }}, 30000)
+
+     })
+          }
+         
+  })})
+     .catch(e => console.log(e))
+      },
+  
+      appendAnswer(problem){
+        console.log('Yes')
+        this.answers[problem.index-1]=problem
+            this.counter++
+            if (this.counter == this.questions.length){
+               console.log(this.answers)
+                this.autosaveQuestion()
+                this.counter = 0
+            }
+      },
+      submitTest(){
+        for (let i=0; i<(this.questions.length); i++){
+        this.$refs.questionModel[i].sendAnswer()
+        }
+        this.submit=true
+        
+      },
+      finishTest(){
+        console.log('finished?')
+        contestService.finish(this.$route.params.userID, this.testID)
+        .then(()=>{
+          router.push('/')
+          this.$router.go()
+        }
+        )
+      },
+      autosaveQuestion(){
+        contestService.autosave(this.$route.params.userID,this.testID,this.answers)
+          .then(obj =>{
+            this.timerStart = obj.timerStart
+            if (this.submit == true){
+              this.finishTest()
+            }
+          })
+      }
+    },
+    created(){
+ 
+   contestService.verifyCode(this.$route.params.userID, this.testID)
+   .then(obj =>{
+     if (obj.success == true){
+       console.log(obj.success)
+        this.loadTheMath()
+
+     }else{
+       router.push('/signup')
+     }
+
+     
+   }
+   )
+   .catch(e=>{
+     console.log(this.$route.params.userID)
+      console.log(e)
+      router.push('/signup')
+   }
+   )
+
+  
+}
+}
+</script>
