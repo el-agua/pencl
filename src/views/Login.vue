@@ -6,7 +6,7 @@
           <div class="container">
             <header class="card-content">
               <p class="card-header-title is-centered is-size-3">
-                {{user.username}} {{cats}}
+               Login
               </p>
             </header>
             <div class="card-content">
