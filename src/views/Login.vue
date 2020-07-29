@@ -1,8 +1,8 @@
 <template>
   <section class="section">
     <div class="columns is-centered">
-      <div class="column is-half">
-        <div id="rounded-card" class="card is-shadowless">
+      <div class="column is-4">
+        <div id="rounded-card" class="card">
           <div class="container">
             <header class="card-content">
               <p class="card-header-title is-centered is-size-3">
@@ -137,6 +137,11 @@ export default {
         }
     }
   },
+  created(){
+     if (this.user.username != null){
+      router.push('/dashboard')
+    }
+  }
 };
 </script>
 

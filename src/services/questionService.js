@@ -6,7 +6,9 @@ export const questionService = {
   getAllSets,
   getEditSet,
   editProblem,
-  getContestSet
+  getContestSet,
+  removeProblem,
+  searchProblems
 };
 
 function addProblem(problem) {
@@ -15,6 +17,19 @@ function addProblem(problem) {
     .post(`/api/problems/createSet`, problem)
     .then(u => u)
     .catch(e => e);
+}
+function searchProblems(search) {
+  return axios
+  .post(`/api/problems/searchProblems`, {search: search})
+  .then(u => u.data)
+  .catch(e => e);
+}
+function removeProblem(problem) {
+  console.log(problem)
+  return axios
+  .delete(`/api/problems/${problem}`)
+  .then(u => u)
+  .catch(e => e);
 }
 function editProblem(id,set) {
     const sendProblem = {

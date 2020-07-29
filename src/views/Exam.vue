@@ -1,7 +1,7 @@
 <template>
 <section class="section">
   <Timer :timerStart="timerStart" @timesUp="finishTest" :duration="duration" />
- <DisplayQuestion ref="questionModel" @answerSend="appendAnswer" v-for="question in questions"  :key="question.index" :number="question.index" :statement="question.statement"/>
+ <DisplayQuestion ref="questionModel" @answerSend="appendAnswer" v-for="question in questions"  :key="question.id" :number="question.id" :statement="question.statement"/>
   <div class="columns is-centered">
   <div class="buttons">
     <b-button @click="submitTest" class="is-triple">

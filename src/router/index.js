@@ -56,14 +56,6 @@ Vue.use(VueRouter)
     component: () => import(/* webpackChunkName: "about" */ '../views/AddSet.vue')
   },
   {
-    path: '/exam',
-    name: 'Exam',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/Exam.vue')
-  },
-  {
     path: '/createcontest',
     name: 'createContest',
     // route level code-splitting
@@ -118,6 +110,42 @@ Vue.use(VueRouter)
     // which is lazy-loaded when the route is visited.
     component: () => import('../views/ContestDashboard.vue')
   },
+  {
+    path: '/search',
+    name: 'Search',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/Search.vue')
+  },
+  {
+    path: '/findcontest',
+    name: 'ContestSearch',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/ContestSearch.vue')
+  },
+  {
+
+  
+    path: '/view/:id',
+    name: 'ViewSet',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import('../views/ViewSet.vue')
+  },
+  {
+
+  
+    path: '/account',
+    name: 'Account',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import('../views/Account.vue')
+  }
 ]
 
 const router = new VueRouter({

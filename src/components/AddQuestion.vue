@@ -1,19 +1,19 @@
 <template>
   <div class="columns is-centered">
     <div class="column is-three-fifths">
-      <div id="rounded-card" class="card is-shadowless">
+      <div id="rounded-card" class="card">
         <div class="card-content">
           <div class="level">
             <div class="level-left">
               <div class="level-item">
-                <p class="is-size-1">Question {{question.index}}</p>
+                <p class="is-size-1">Question {{number}}</p>
               </div>
             </div>
-            <div class="level-left">
+            <div class="level-right">
               <div class="level-item">
                 <div class="buttons">
-                  <b-button @click="deleteQuestion" class="is-danger">
-                    Delete
+                  <b-button @click="deleteQuestion" class="is-danger" icon-left="delete" >
+  
                   </b-button>
                 </div>
               </div>
@@ -97,13 +97,13 @@ export default {
         "vue-mathjax": VueMathjax
 },
 props:[
-        'number'
+        'number', 'length','questionShell'
     ],
 
   data() {
     return {
       question:{
-            index: this.number,
+            id: this.number,
             statement: '',
             answers: '',
             solution: '',
@@ -114,12 +114,28 @@ props:[
   },
   methods: {
     sendQuestion(){
-            this.$emit("questionSend", this.question)
+          if (this.question.statement == ''){
+            this.question.statement = ' '
+          }
+          if (this.question.answers == ''){
+            this.question.answers = ' '
+          }
+          if (this.question.solution == ''){
+            this.question.solution = ' '
+          }
+          if (this.question.author == ''){
+            this.question.author = ' '
+          }
+          this.question.id=this.number
+          this.$emit("questionSend", this.question)
         },
         deleteQuestion(){
-            this.$emit("questionDelete", this.question.index)
+            this.$emit("questionDelete", this.questionShell)
         }
   },
+  created(){
+    console.log([this.number, this.length ])
+  }
 };
 </script>
 

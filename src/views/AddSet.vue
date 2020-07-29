@@ -4,7 +4,7 @@
     <div class="container">
         <div class="columns is-centered">
         <div class="column is-three-fifths">
-        <div id="rounded-card" class="card is-shadowless">
+        <div id="rounded-card" class="card">
             <div class="card-content">
                 <p class="is-size-1">Title:</p>
                 <b-field>
@@ -18,7 +18,7 @@
         </div>
         </div>
         </div>
-        <AddQuestion @questionDelete="deleteProblem" @questionSend="appendProblems" ref="questionModel" v-for="question in questions" :key="question.index" :number='question.index'/>
+        <AddQuestion @questionDelete="deleteProblem" @questionSend="appendProblems" ref="questionModel" v-for="question in questions" :questionShell="question" :key="question.id" :number='questions.indexOf(question)+1' :length='questions.length'/>
         <div class="columns is-centered">
         <div id="margini" class=buttons>
           <b-button @click="addToArray" class="is-secondary is-medium">
@@ -52,6 +52,7 @@ export default {
 
   data() {
     return {
+      deleteCounter: 0,
       isunique: true,
       questions:[],
       counter: 0,
@@ -75,10 +76,13 @@ export default {
       }
     },
     addToArray(){
-            this.questions.push({index: (this.questions.length)+1})
+            this.questions.push({id: (this.questions.length)+1})
             this.set.questions.push({})
         },
         pressButton(){
+        if (this.set.set == ''){
+            this.$buefy.toast.open('You need a name for your set buddy!')
+        }else{
         //checks set name for uniqueness
         questionService.getSet(this.set.creator, this.set.set)
         .then(u => {
@@ -93,16 +97,19 @@ export default {
                 this.$buefy.toast.open('You already have a set with this name!')
             }
         })
-        
+        }
         },
          appendProblems(problem){
              //adds problems and sends them to the database
-            this.set.questions[problem.index-1]=problem
-            this.counter++
-            if (this.counter == this.questions.length){
+             console.log(this.questions)
+             
+           this.set.questions[problem.id-1]=problem
+          this.counter++
+            
+            if(this.counter == (this.questions.length)){
                 this.sendToDatabase()
-                this.counter = 0
-            }
+           }
+            
          },
          sendToDatabase(){
              questionService.addProblem(this.set)
@@ -111,13 +118,21 @@ export default {
              })
              .catch(e => console.log(e))
          },
-         deleteProblem(index){
-             this.questions.splice(index-1)
-             for (let i=0; i<(this.questions.length); i++){
-            this.questions[i].index = i+1
+         deleteProblem(question){
+            this.deleteCounter=this.deleteCounter+1
+             this.questions.splice(this.questions.indexOf(question),1)
+             this.set.questions.splice(this.questions.indexOf(question),1)
+         //   for (let i=index-1; i<(this.questions.length); i++){
+         ///   this.questions[i].index = this.questions[i].index-1
 
-         }}
+      //  }}
+         }
   },
+  created(){
+    if (this.user.username == null){
+      router.push('/login')
+    }
+  }
 };
 </script>
 

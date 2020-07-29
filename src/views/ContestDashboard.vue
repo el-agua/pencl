@@ -1,12 +1,17 @@
 <template>
+<div class="container">
 <section class='section'>
     <div class="columns is-centered">
-    <div class="is-size-1">{{contestName}}</div>
+    <div class="is-size-1"><strong>{{contestName}}</strong></div>
+   
     </div>
+    <div class="columns is-centered">
+     <a class="is-size-5" :href="`/contest/${$route.params.id}`"><strong>Contest Page</strong></a>
+     </div>
     <section class='section'>
-    <div class="is-size-3"> Test Participants:</div>
-     <b-table :data="particData" v-if="particData.length!=0">
-          
+    <div class="is-size-3"> <strong>Test Participants:</strong></div>
+     <b-table :data="particData" v-if="particData.length!=0" striped>
+    
     <template slot-scope="props">
         <b-table-column field="displayName" label="Display Name" centered>
           {{ props.row.displayName}}
@@ -28,9 +33,9 @@
      <div class="is-size-6" v-else>No participants yet! </div>
      </section>
      <section class='section'>
-         <div class="is-size-3"> Test Results:</div>
+         <div class="is-size-3"> <strong>Test Results:</strong></div>
          
-     <b-table :data="submissionData" v-if="submissionData.length!=0">
+     <b-table :data="submissionData" v-if="submissionData.length!=0" striped>
           <template slot-scope="props">
               <b-table-column field="index" label="Place" centered>
           {{ props.index + 1}}
@@ -61,23 +66,68 @@
      <div class="is-size-6" v-else>No submissions yet! </div>
      
      </section>
-     
+     <section class="section">
+         <div class="is-size-3"> <strong>Results Distribution:</strong></div>
+      <Chart v-if="loaded" :chartdata="chartData" :options="chartOptions"/>
+      </section>
      </section>
+    
+     </div>
 </template>
 
 <script>
 import { contestService } from "../services/contestService";
+import Chart from "../components/Chart"
 import router from "../router"
 export default {
+    components:{
+        Chart
+    },
     props:['user'],
     data(){
         return {
+            loaded: false,
             contestName: '',
             particData: [],
             submissionData: [],
+            chartData: {
+                labels: [],
+                datasets: [{
+                    label: "Scores",
+                    data: [],
+                    backgroundColor: "#2B4570"
+                }],
+                
+
+
+            },
+           chartOptions: {
+                maintainAspectRatio: false,
+                legend: {
+            display: false
+         },
+         scales: {
+    yAxes: [{
+      scaleLabel: {
+        display: true,
+        labelString: 'Submissions'
+      }
+    }],
+    xAxes: [{
+      scaleLabel: {
+        display: true,
+        labelString: 'Scores'
+      }
+    }]
+  }   
         }
+        }
+         
     },
     methods:{
+        getOccurence(array, value) {
+            return array.filter((v) => (v === value)).length;
+        },
         deleteSubmission(code){
             console.log(code)
             contestService.deleteSubmission(code, this.$route.params.id)
@@ -107,7 +157,20 @@ export default {
                 .then(
                     b =>{
                         let c = b.sort(function(x, y){return y.score-x.score})
+                        let scores = c.map(n => n.score)
+                        let maxScore = scores[0]
+                        let arrayOfLabels = Array.from(Array(maxScore+1).keys())
+                        let stringArrayOfLabels = arrayOfLabels.map(m => String(m))
+                        let realScores = []
+                        for (var i=0; i<=maxScore;i++){
+                                realScores.push(this.getOccurence(scores, i))
+                        }
+                        this.chartData.labels=stringArrayOfLabels
+                        this.chartData.datasets[0].data=realScores
+                        console.log({realScores: realScores})
+                        console.log(stringArrayOfLabels)
                         this.submissionData = c
+                        this.loaded=true
                     }
                 )
             })

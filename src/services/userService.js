@@ -6,7 +6,9 @@ export const userService = {
   getUsernames,
   login,
   session,
-  logout
+  logout,
+  changePassword,
+  changeEmail
 };
 
 function register(user) {
@@ -36,6 +38,30 @@ function login(user) {
   return axios
     .post(`/api/users/login`, user)
     .then((u) => u)
+    .catch((e) => e);
+}
+
+function changePassword(username,password, newPassword) {
+  const userPackage={
+    username: username,
+    password: password,
+    newPassword: newPassword
+  }
+  return axios
+    .post(`/api/users/changePassword`, userPackage)
+    .then((u) => u.data)
+    .catch((e) => e);
+}
+
+function changeEmail(username, email, newEmail) {
+  const emailPackage={
+    username: username,
+    email: email,
+    newEmail: newEmail
+  }
+  return axios
+    .post(`/api/users/changeEmail`, emailPackage)
+    .then((u) => u.data)
     .catch((e) => e);
 }
 

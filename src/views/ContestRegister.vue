@@ -1,8 +1,8 @@
 <template>
   <section class="section">
     <div class="columns is-centered">
-      <div class="column is-half">
-        <div id="rounded-card" class="card is-shadowless">
+      <div class="column is-4">
+        <div id="rounded-card" class="card">
           <div class="container">
             <header class="card-content">
               <p class="card-header-title is-centered is-size-3">
@@ -102,7 +102,12 @@ export default {
         contestService.newParticipant(participant, this.testID)
         .then(
           () => {
-            router.push('/')
+             this.$buefy.dialog.alert({
+                    title: 'Test Code',
+                    message: `Your test code is: ${this.testCode}. Remember this code, as you will need it to take the exam.`,
+                    confirmText: 'Got It!'
+            })
+            router.push(`/contest/${this.testID}`)
             console.log('Hello')
           }
         )
@@ -137,7 +142,6 @@ export default {
         } else {
 
           if (
-        (Date.now() <= Date.parse(contest.dates[0])) ||
         (Date.now() >= Date.parse(contest.dates[1]))
       ){
           router.push('/yikes');

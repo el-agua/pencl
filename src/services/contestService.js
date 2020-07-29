@@ -12,8 +12,33 @@ export const contestService = {
   deleteSubmission,
   deleteParticipant,
   publicResults,
-  publicContest
+  publicContest,
+  getAllContests,
+  removeContest,
+  searchContests
 };
+function searchContests(){
+  return axios
+    .get(`/api/contests/searchAllContests`)
+    .then((u) => u.data)
+    .catch((e) => e);
+}
+function removeContest(contest) {
+  console.log(contest)
+  return axios
+  .delete(`/api/contests/${contest}`)
+  .then(u => u)
+  .catch(e => e);
+}
+function getAllContests(creator) {
+  const userSets = {
+    creator: creator
+  };
+  return axios
+    .post(`/api/contests/findAllContests`, userSets)
+    .then((u) => u.data)
+    .catch((e) => e);
+}
 
 function addContest(contest) {
     console.log(contest)

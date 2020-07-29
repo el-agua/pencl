@@ -1,17 +1,21 @@
 <template>
   <div id="app">
+     <div id="page-container">
     <NavBar :user="user"/>
-    <div class="container">
+     <div id="content-wrap">
     <router-view @loginSuccess="loginData" :user="user"/>
     </div>
+    <Footer/>
+</div>
   </div>
 </template>
 <script>
+import Footer from "./components/Footer"
 import NavBar from './components/NavBar'
 import {userService} from './services/userService'
 export default {
   components:{
-    NavBar
+    NavBar, Footer
   },
   data(){
     return{
@@ -40,19 +44,24 @@ export default {
 }
 </script>
 <style lang="scss">
+@import "./mastersetup.css";
 // Import Bulma's core
 @import "~bulma/sass/utilities/_all";
-
+$footer-background-color: #FFFFF;
 // Set your colors
-
-$body-background-color: #e8ead3;
-$triple: #fbd46d;
+$family-primary: 'Manrope';
+//$body-background-color: #e8ead3;
+$triple: #22AED1;
 $triple-invert: findColorInvert($triple);
-$secondary: #ff9c71;
+$tangerine: #ffcc00;
+$tangerine-invert: findColorInvert($tangerine);
+$secondary: #C84630;
 $secondary-invert: findColorInvert($secondary);
-$primary: #654062;
+$primary: #2B4570;
 $primary-invert: findColorInvert($primary);
-$twitter: #4099FF;
+$danger: #d11a2a;
+$danger-invert: findColorInvert($danger);
+$twitter: #436EB1;
 $twitter-invert: findColorInvert($twitter);
 
 // Setup $colors to use as bulma classes (e.g. 'is-twitter')
@@ -63,6 +72,7 @@ $colors: (
     "dark": ($dark, $dark-invert),
     "primary": ($primary, $primary-invert),
     "secondary":($secondary, $secondary-invert),
+    "tangerine":($tangerine, $tangerine-invert),
     "triple":($triple, $triple-invert),
     "info": ($info, $info-invert),
     "success": ($success, $success-invert),

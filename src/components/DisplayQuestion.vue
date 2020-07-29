@@ -1,12 +1,13 @@
 <template>
   <div class="columns is-centered">
-    <div class="column is-four-fifths">
-      <div id="rounded-card" class="card is-shadowless">
+    <div class="column is-three-fifths">
+      <div id="rounded-card" class="card">
         <div class="card-content">
           <div class="is-size-4">
             <strong>Question {{ answer.index }}</strong>
           </div>
-          <div>
+          
+          <div id="margina">
             <vue-mathjax :formula="question.statement"></vue-mathjax>
           </div>
           <div class="columns is-centered">
@@ -58,5 +59,9 @@ export default {
 <style>
 #rounded-card {
   border-radius: 20px;
+}
+#margina{
+  margin-top: 30px;
+  margin-bottom: 30px
 }
 </style>

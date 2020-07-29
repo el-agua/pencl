@@ -1,14 +1,23 @@
 <template>
-  <b-navbar class="is-primary" spaced>
+
+  <b-navbar wrapper-class="container" spaced>
       <template slot="brand">
-          <b-navbar-item tag="router-link" :to="{path: '/'}">
-            <img src="https://bulma.io/images/bulma-logo.png"/>
+          <b-navbar-item id="bingbong" tag="router-link" :to="{path: '/'}" >
           </b-navbar-item>
       </template>
        <template v-if="user.username!=null" slot="start">
-            <b-navbar-item  tag="router-link" v-for="menuItem in menuItems" :key="menuItem.id" :to="menuItem.link">
-                
+            <b-navbar-item tag="router-link" v-for="menuItem in menuItems" :key="menuItem.id" :to="menuItem.link">
+                <b-icon size="is-small" :type="menuItem.color" :icon="menuItem.icon"></b-icon>
+		<span></span>
                 {{menuItem.name}}
+
+            </b-navbar-item>
+        </template>
+        <template v-else slot="start">
+            <b-navbar-item tag="router-link" v-for="defaultItem in defaultItems" :key="defaultItem.id" :to="defaultItem.link">
+                <b-icon size="is-small" :type="defaultItem.color" :icon="defaultItem.icon"></b-icon>
+		<span></span>
+                {{defaultItem.name}}
 
             </b-navbar-item>
         </template>
@@ -16,10 +25,10 @@
            <div>
             <b-navbar-item v-if="user.username==null" tag="div">
                 <div class="buttons">
-                    <a class="button is-secondary">
+                    <a href="/signup" class="button is-secondary">
                         <strong>Sign up</strong>
                     </a>
-                    <a class="button is-triple">
+                    <a href="/login" class="button is-primary">
                         <strong>
                         Log in
                         </strong>
@@ -28,8 +37,9 @@
                 
             </b-navbar-item>
             <b-navbar-item v-else tag="div">
-            <b-navbar-dropdown :label="user.username">
-                <b-navbar-item href="#">
+                 
+            <b-navbar-dropdown :label="user.username"  >
+                <b-navbar-item href="/account">
                     Account
                 </b-navbar-item>
                 <b-navbar-item @click="logout">
@@ -39,7 +49,9 @@
             </b-navbar-item>
             </div>
         </template>
+        
   </b-navbar>
+  
 </template>
 
 <script>
@@ -55,23 +67,48 @@ export default {
             menuItems:[{
                 id:1,
                 name: 'About',
-                link: '/about'
+                link: '/about',
+                icon: 'heart',
+                color: 'is-secondary'
             },
             {
                 id:2,
-                name: 'Account',
-                link: '/'
+                name: 'Contests',
+                link: '/findcontest',
+                 icon: 'lead-pencil',
+                 color: 'is-secondary'
             },
             {
                 id:3,
                 name: 'Browse',
-                link: '/about'
+                link: '/search',
+                 icon: 'magnify',
+                 color: 'is-secondary'
             },
             {
                 id:4,
                 name: 'Dashboard',
-                link: '/dashboard'
+                link: '/dashboard',
+                 icon: 'view-dashboard',
+                 color: 'is-secondary'
             }
+            ],
+            defaultItems:[
+            {
+                id:1,
+                name: 'Browse',
+                link: '/search',
+                 icon: 'magnify',
+                 color: 'is-secondary'
+            },
+            {
+                id:2,
+                name: 'Contests',
+                link: '/findcontest',
+                 icon: 'lead-pencil',
+                 color: 'is-secondary'
+            },
+            
             ]
         }
     },
@@ -84,10 +121,24 @@ export default {
             }
             )
         }
+    },
+    mounted(){
+
     }
 }
 </script>
 
 <style>
-
+#bingbong {
+  background: url("../assets/parachutefunblue.png") no-repeat center center;
+  background-size: 52px;
+  width: 52px;
+  margin-right: 10px
+}
+#bingbang {
+  background: url("../assets/parachutefunblue.png") no-repeat center center;
+  background-size: cover;
+  width: 56px;
+  margin-right: 10px
+}
 </style>

@@ -1,7 +1,9 @@
 <template>
   <section class="section">
     <div class="columns is-centered">
-      <div class="is-size-1"><strong>{{ contestData.contestName }}</strong></div>
+      <div class="is-size-1">
+        <strong>{{ contestData.contestName }}</strong>
+      </div>
     </div>
     <div class="columns is-centered">
       <div class="is-size-5">Organizer: {{ contestData.creator }}</div>
@@ -19,37 +21,44 @@
           </div>
         </div>
       </div>
-      <div v-if="done==false">
-      <div id="margini">
-        <div class="columns is-centered">
-          <div class="buttons">
-            <b-button @click="prompt" class="is-triple is-large"><strong>Start Contest</strong></b-button>
-          </div>
-        </div>
-      </div>
-      <div id="margini">
-        <div class="columns is-centered">
-          <div class="is-size-6">
-            Not registered yet?
-          </div>
-</div>
+      <div v-if="(done == false) & (start == true)">
+        <div id="margini">
           <div class="columns is-centered">
             <div class="buttons">
-                <router-link :to="{'name': 'register'}">
-              <b-button class="is-secondary is-medium">
-                  
-                  Register
-                  
-                  </b-button>
-                </router-link>
+              <b-button @click="prompt" class="is-triple is-large"
+                ><strong>Start Contest</strong></b-button
+              >
+            </div>
+          </div>
+        </div>
+        <div id="margini">
+          <div class="columns is-centered">
+            <div class="is-size-6">
+              Not registered yet?
             </div>
           </div>
         </div>
       </div>
+        <div v-if="done == false">
+          <div class="columns is-centered">
+            <div class="buttons" id="margini">
+              <router-link :to="{ name: 'register' }">
+                <b-button class="is-secondary is-medium">
+                  Register
+                </b-button>
+              </router-link>
+            </div>
+          </div>
+          </div>
       <div class="columns is-centered">
         <div class="is-size-3"><strong>Leaderboard:</strong></div>
       </div>
-      <b-table :data="submissionData" v-if="submissionData.length != 0">
+      <b-table
+        :data="submissionData"
+        v-if="submissionData.length != 0"
+        striped
+        hoverable
+      >
         <template slot-scope="props">
           <b-table-column field="index" label="Place" centered>
             {{ props.index + 1 }}
@@ -62,7 +71,9 @@
           </b-table-column>
         </template>
       </b-table>
-      <div class="is-size-6" v-else>No submissions yet!</div>
+      <div class="columns is-centered" v-else>
+        <div class="is-size-6">No submissions yet!</div>
+      </div>
     </section>
   </section>
 </template>
@@ -77,34 +88,36 @@ export default {
       contestData: {},
       submissionData: [],
       done: false,
+      start: false,
     };
   },
   methods: {
     prompt() {
-            this.$buefy.dialog.prompt({
-                message: `What's your test code?`,
-                inputAttrs: {
-                    placeholder: 'e.g. abc123',
-                    maxlength: 12
-                },
-                trapFocus: false,
-                onConfirm: (value) => {
-                    router.push(`/contest/${this.testID}/exam/${value}`)
-                }
-            })
+      this.$buefy.dialog.prompt({
+        message: `What's your test code?`,
+        inputAttrs: {
+          placeholder: "e.g. abc123",
+          maxlength: 12,
         },
+        trapFocus: false,
+        onConfirm: (value) => {
+          router.push(`/contest/${this.testID}/exam/${value}`);
+        },
+      });
+    },
     refresh() {
       contestService.publicContest(this.testID).then((u) => {
         if (u.contestName == null) {
-          router.push('/yikes')
+          router.push("/yikes");
         } else {
           this.contestData = u;
 
-        if((Date.now() <= Date.parse(this.contestData.dates[0])) ||
-        (Date.now() >= Date.parse(this.contestData.dates[1]))
-      ){
-        this.done=true
-      }
+          if (Date.now() >= Date.parse(this.contestData.dates[1])) {
+            this.done = true;
+          }
+          if (Date.now() >= Date.parse(this.contestData.dates[0])) {
+            this.start = true;
+          }
           contestService
             .publicResults(this.testID)
             .then((b) => {
