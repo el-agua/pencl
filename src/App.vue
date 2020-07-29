@@ -40,7 +40,7 @@ export default {
        this.user=user.authData.user
        this.isFetched = true
      })
-     .catch(e =>  this.isFetched = true)
+     .catch(() =>  this.isFetched = true)
  }
 
 }
