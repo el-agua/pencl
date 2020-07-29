@@ -3,7 +3,7 @@
      <div id="page-container">
     <NavBar :user="user"/>
      <div id="content-wrap">
-    <router-view @loginSuccess="loginData" :user="user"/>
+    <router-view v-if="isFetched" @loginSuccess="loginData" :user="user"/>
     </div>
     <Footer/>
 </div>
@@ -19,7 +19,8 @@ export default {
   },
   data(){
     return{
-      user:{}
+      user:{},
+      isFetched: false
     }
   },
   methods:{
@@ -35,8 +36,9 @@ export default {
   },
  created(){
    userService.session().then(user => {
-       console.log(user.authData.user)
+  
        this.user=user.authData.user
+       this.isFetched = true
      })
      .catch(e => console.log(e))
  }

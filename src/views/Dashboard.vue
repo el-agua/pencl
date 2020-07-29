@@ -142,6 +142,7 @@ export default {
             console.log(e);
           });
       } else {
+        console.log('oop')
         router.push("/login");
       }
     });

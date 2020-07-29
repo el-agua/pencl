@@ -6,7 +6,7 @@
           <div class="container">
             <header class="card-content">
               <p class="card-header-title is-centered is-size-3">
-                Login
+                {{user.username}} {{cats}}
               </p>
             </header>
             <div class="card-content">
@@ -80,8 +80,10 @@ import router from "../router";
 
 export default {
   name: "Login",
+  props: ['user'],
   data() {
     return {
+      cats: "cool",
       match: true,
       username: "",
       password: "",
@@ -138,7 +140,10 @@ export default {
     }
   },
   created(){
+ 
+     this.cats=this.user.username
      if (this.user.username != null){
+       this.cats="notcool"
       router.push('/dashboard')
     }
   }

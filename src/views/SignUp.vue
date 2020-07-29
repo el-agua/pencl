@@ -114,6 +114,7 @@ import { userService } from "../services/userService";
 import router from '../router'
 export default {
   name: "SignUp",
+  props: ['user'],
   data() {
     return {
         isunique: true,

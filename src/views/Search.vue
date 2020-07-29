@@ -50,6 +50,7 @@ import { questionService } from '../services/questionService'
 import SearchPreview from "../components/SearchPreview"
 export default {
     name: "Search",
+    props: ['user'],
     data(){
         return {
             sets: [],

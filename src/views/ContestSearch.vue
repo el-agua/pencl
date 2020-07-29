@@ -27,6 +27,7 @@
 import {contestService} from "../services/contestService"
 import SearchContest from "../components/SearchContest"
 export default {
+    props: ['user'],
     data(){
         return{
             contests:[]

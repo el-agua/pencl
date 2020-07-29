@@ -19,6 +19,7 @@ export default {
     components:{
         ViewQuestion
     },
+    props: ['user'],
     data(){
         return{
         questions: [],
