@@ -89,7 +89,7 @@
                 </div>
               </div>
               <div class="columns is-centered">
-                <div class="buttons">
+                <div class="buttons has-text-centered">
                   <b-button type="is-secondary" @click="submitForm">
                     Register
                   </b-button>

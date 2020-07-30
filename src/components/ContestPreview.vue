@@ -60,6 +60,7 @@ export default {
   border-radius: 20px;
   transition: 0.3s;
   height: 100%;
+  min-height: 191px
 }
 #rounded-cardC:hover{
   transform: scale(1.05);

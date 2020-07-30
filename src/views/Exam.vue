@@ -1,7 +1,9 @@
 <template>
 <section class="section">
+  <div v-if="mathLoaded">
   <Timer :timerStart="timerStart" @timesUp="finishTest" :duration="duration" />
  <DisplayQuestion ref="questionModel" @answerSend="appendAnswer" v-for="question in questions"  :key="question.id" :number="question.id" :statement="question.statement"/>
+  </div>
   <div class="columns is-centered">
   <div class="buttons">
     <b-button @click="submitTest" class="is-triple">
@@ -35,7 +37,8 @@ export default {
             questions: [],
             timerStart: Date.now(),
             counter: 0,
-            submit: false
+            submit: false,
+            mathLoaded: false,
         }
     },
     methods:{
@@ -59,7 +62,7 @@ export default {
             for (let i=0; i<(this.questions.length); i++){
             this.answers.push('')
             }
-        console.log('Hello')
+        this.mathLoaded = true
         setInterval(()=>{for (let i=0; i<(this.questions.length); i++){
                 this.$refs.questionModel[i].sendAnswer()
                 console.log('Hello')

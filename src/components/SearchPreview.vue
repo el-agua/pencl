@@ -1,7 +1,7 @@
 <template>
 <div>
   
-  <div  id="rounded-cardC" @mouseover="showChev=true" @mouseleave="showChev=false" class="card">
+  <div  id="rounded-cardD" @mouseover="showChev=true" @mouseleave="showChev=false" class="card">
               <div class="card-content">
                 <router-link :to="myLink">
                   <p  class="is-size-4 has-text-dark"><strong>{{title}}</strong></p>
@@ -43,12 +43,12 @@ export default {
 </script>
 
 <style>
-#rounded-cardC {
+#rounded-cardD{
   border-radius: 20px;
   transition: 0.3s;
   height: 100%;
 }
-#rounded-cardC:hover{
+#rounded-cardD:hover{
   transform: scale(1.05);
 }
 #rounded-card {

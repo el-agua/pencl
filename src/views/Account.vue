@@ -2,14 +2,14 @@
 <section class="section">
   <div class="container">
         <div class="columns is-centered">
-        <div class="column is-3">
+        <div class="column is-4">
         <div id="rounded-card" class="card">
             <div class="card-content">
                 <div class="columns is-centered">
                     <div class="is-size-4">My Account</div>
                     </div>
                     <div class="columns is-centered">
-                    <div class="is-size-2"><strong>{{user.username}}</strong></div>
+                    <div class="is-size-3"><strong>{{user.username}}</strong></div>
                     </div>
             
                     <div id="mar" class="columns is-centered">

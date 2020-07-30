@@ -94,7 +94,7 @@
           </div>
           
 <div class="columns is-centered">
-            <div class="buttons" id="learning">
+            <div class="buttons has-text-centered" id="learning">
             <b-button
               icon-right="chevron-right"
               size="is-medium"
