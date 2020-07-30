@@ -11,7 +11,7 @@
             <p class="is-size-7 has-text-primary">{{ new Date(dates[1]).toUTCString() }}</p>
                 </router-link>
               </div>
-             <footer  class="card-footer is-cool">
+             <footer  class="card-footer is-coolA">
               <div class="card-footer-item">
                  <div  class="icon is-small">
                    <transition name="fade">
@@ -59,14 +59,14 @@ export default {
 #margini{
   margin-bottom: 20px;
 }
-.is-cool{
+.is-coolA{
   background-color:#436EB1;
   color: white;
   border-color: transparent;
   border-radius: 0px 0px 20px 20px;
   transition: 0.3s;
 }
-.is-cool:hover{
+.is-coolA:hover{
   background-color: #2B4570;
   
 }
