@@ -12,6 +12,11 @@
      © 2020 Parachute
     </span>
     </div>
+    <div class="column is-1 has-text-centered">
+          <a class="is-size-7 has-text-dark" @click="openBug" >
+     Report Bug
+    </a>
+    </div>
       <div class="column is-1 has-text-centered">
           <a class="is-size-7 has-text-dark" >
      Privacy Policy
@@ -32,15 +37,27 @@
      About
     </a>
     </div>
+    <div class="column is-1 has-text-centered">
+          <a class="is-size-7 has-text-dark" >
+     Report Abuse
+    </a>
+    </div>
+     
   </div>
 </footer>
 </template>
     
 
 <script>
-
+import ReportBug from "../components/ReportBug"
 export default{
-        name: "Footer"
+        props: ['user'],
+        name: "Footer",
+        methods:{
+          openBug(){
+            this.$buefy.modal.open({ parent: this, component: ReportBug, hasModalCard: true, props: {"user": this.user}})
+          }
+        } 
     }
 </script>
 

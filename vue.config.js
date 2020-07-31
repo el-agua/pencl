@@ -2,7 +2,7 @@ module.exports = {
   devServer:{
     proxy: {
       "/api/*": {
-          target: "https://rocky-sierra-96058.herokuapp.com/",
+          target: "http://localhost:5000/",
           changeOrigin: true,
         logLevel: "debug",
  

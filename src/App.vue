@@ -5,7 +5,7 @@
      <div id="content-wrap">
     <router-view v-if="isFetched" @loginSuccess="loginData" :user="user"/>
     </div>
-    <Footer/>
+    <Footer :user="user"/>
 </div>
   </div>
 </template>
@@ -49,7 +49,7 @@ export default {
 @import "./mastersetup.css";
 // Import Bulma's core
 @import "~bulma/sass/utilities/_all";
-$footer-background-color: #FFFFF;
+$footer-background-color: #FFFFFF;
 // Set your colors
 $family-primary: 'Manrope';
 //$body-background-color: #e8ead3;
