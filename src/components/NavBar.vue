@@ -66,28 +66,28 @@ export default {
             loggedIn: true,
             menuItems:[{
                 id:1,
-                name: 'About',
+                name: 'ABOUT',
                 link: '/about',
                 icon: 'heart',
                 color: 'is-secondary'
             },
             {
                 id:2,
-                name: 'Contests',
+                name: 'CONTESTS',
                 link: '/findcontest',
                  icon: 'lead-pencil',
                  color: 'is-secondary'
             },
             {
                 id:3,
-                name: 'Browse',
+                name: 'BROWSE',
                 link: '/search',
                  icon: 'magnify',
                  color: 'is-secondary'
             },
             {
                 id:4,
-                name: 'Dashboard',
+                name: 'DASHBOARD',
                 link: '/dashboard',
                  icon: 'view-dashboard',
                  color: 'is-secondary'
@@ -96,14 +96,14 @@ export default {
             defaultItems:[
             {
                 id:1,
-                name: 'Browse',
+                name: 'BROWSE',
                 link: '/search',
                  icon: 'magnify',
                  color: 'is-secondary'
             },
             {
                 id:2,
-                name: 'Contests',
+                name: 'CONTESTS',
                 link: '/findcontest',
                  icon: 'lead-pencil',
                  color: 'is-secondary'
@@ -133,7 +133,8 @@ export default {
   background: url("../assets/parachutefunblue.png") no-repeat center center;
   background-size: 52px;
   width: 52px;
-  margin-right: 10px
+  margin-right: 10px;
+  margin-left: 5px
 }
 #bingbang {
   background: url("../assets/parachutefunblue.png") no-repeat center center;

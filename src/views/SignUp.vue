@@ -88,12 +88,10 @@
                   </b-field>
                 </div>
               </div>
-              <div class="columns is-centered">
-                <div class="buttons has-text-centered">
+              <div class="columns is-centered has-text-centered">
                   <b-button type="is-secondary" @click="submitForm">
                     Register
                   </b-button>
-                </div>
               </div>
               <div class="has-text-centered">
                 <router-link to="/login" class="is-size-7"

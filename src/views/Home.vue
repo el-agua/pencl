@@ -93,16 +93,17 @@
               <img src="../assets/parachutefun.png" />
           </div>
           
-<div class="columns is-centered">
-            <div class="buttons has-text-centered" id="learning">
+<div class="columns is-centered has-text-centered" id="learning">
+            
             <b-button
               icon-right="chevron-right"
               size="is-medium"
-              class="is-secondary"
+              class="is-secondary is-centered"
+              
             >
               <strong> Sign Up Now</strong>
             </b-button>
-          </div>
+         
           </div>
   
         </div>
@@ -135,11 +136,14 @@ export default {
 #rounded-cardA {
   border-radius: 20px;
   background-color: #C84630;
+  min-height: 224px;
 }
 #rounded-cardB {
   border-radius: 20px;
   background-color: #2B4570;
+  min-height: 224px;
 }
+
 .doublespace{
 
   line-height: 2 ;
