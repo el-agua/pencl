@@ -1,11 +1,11 @@
 <template>
 <div class="container">
 <section class='section'>
-    <div class="columns is-centered">
+    <div class="columns is-centered has-text-centered">
     <div class="is-size-1"><strong>{{contestName}}</strong></div>
    
     </div>
-    <div class="columns is-centered">
+    <div class="columns is-centered has-text-centered">
      <a class="is-size-5" :href="`/contest/${$route.params.id}`"><strong>Contest Page</strong></a>
      </div>
     <section class='section'>

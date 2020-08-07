@@ -17,21 +17,19 @@
         
         <EditQuestion @questionDelete="deleteProblem" @editSend="appendProblems" ref="questionModel" 
         v-for="question in questions" :key="question.id" :number='questions.indexOf(question)+1' :statement="question.statement" :answer="question.answers" :length="questions.length" :questionShell="question" :solution="question.solution" :author="question.author"/>
-        <div class="columns is-centered">
-          <div class="columns is-6">
-        <div id="margini" class=buttons>
-          <b-button icon-left="plus" @click="addToArray" class="is-secondary is-large" expanded>
+        <div class="columns is-centered has-text-centered">
+        
+          <b-button id="margini" icon-left="plus" @click="addToArray" class="is-secondary is-large">
             <strong>Add Question</strong>
           </b-button>
+    
         </div>
-        </div>
-        </div>
-         <div class="columns is-centered">
-        <div id="margini" class=buttons>
-          <b-button icon-left="content-save" @click="pressButton" class="is-triple is-medium">
+         <div class="columns is-centered has-text-centered">
+       
+          <b-button id="margini" icon-left="content-save" @click="pressButton" class="is-triple is-medium">
             <strong>Save</strong>
           </b-button>
-        </div>
+       
         </div>
     </div>
   </section>

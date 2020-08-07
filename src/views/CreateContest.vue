@@ -1,11 +1,11 @@
 <template>
   <section class="section">
-    <div class="columns is-centered">
+    <div class="columns is-centered has-text-centered">
       <div class="is-size-3 has-text-black">
                <strong>Create Contest</strong>
               </div>
       </div>
-      <div class="columns is-centered">
+      <div class="columns is-centered has-text-centered">
       <div class="is-size-4 has-text-dark">
               Making memories.
               </div>
@@ -18,7 +18,7 @@
               
             
            
-                <div class="columns is-centered">
+                <div class="columns is-centered has-text-centered">
             
             <div class="is-size-4"><strong>Planning & Setup</strong></div>
             </div>
@@ -110,7 +110,7 @@
                   </b-field>
                 </div>
               </div>
-            <div class="columns is-centered">
+            <div class="columns is-centered has-text-centered">
             
             <div class="is-size-4"><strong>Awarding Points</strong></div>
             </div>
@@ -163,7 +163,7 @@
                 </div>
               </div>
               
-                <div class="columns is-centered">
+                <div class="columns is-centered has-text-centered">
             
             <div class="is-size-4"><strong>Problem Sets</strong></div>
             </div>
@@ -187,13 +187,13 @@
             </div>
 
               </div>
-              <div  class="columns is-centered">
+              <div  class="columns is-centered has-text-centered">
                   <div class="is-size-6">Note: Using public sets may decrease the quality of your contest.</div>
                 </div>
               <section class="section">
-               <div class="columns is-centered">
+               <div class="columns is-centered has-text-centered">
             <b-field >
-              <b-checkbox size="is-large" v-model="linkOnly">Contest is only accessible by link.</b-checkbox>
+              <b-checkbox size="is-medium" v-model="linkOnly">Contest is only accessible by link.</b-checkbox>
               </b-field>
               </div>
               </section>

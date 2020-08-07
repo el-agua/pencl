@@ -19,19 +19,19 @@
         </div>
         </div>
         <AddQuestion @questionDelete="deleteProblem" @questionSend="appendProblems" ref="questionModel" v-for="question in questions" :questionShell="question" :key="question.id" :number='questions.indexOf(question)+1' :length='questions.length'/>
-        <div class="columns is-centered">
-        <div id="margini" class=buttons>
-          <b-button icon-left="plus" @click="addToArray" class="is-secondary is-medium">
-            Add Question
+        <div class="columns is-centered has-text-centered">
+       
+          <b-button id="margini" icon-left="plus" @click="addToArray" size="is-large" class="is-secondary is-medium">
+           <strong> Add Question</strong>
           </b-button>
+      
         </div>
-        </div>
-         <div class="columns is-centered">
-        <div id="margini" class=buttons>
-          <b-button icon-left="content-save" @click="pressButton" class="is-triple is-medium">
+         <div class="columns is-centered has-text-centered">
+       
+          <b-button id="margini" icon-left="content-save" @click="pressButton" class="is-triple is-medium">
             <strong>Save</strong>
           </b-button>
-        </div>
+       
         </div>
     </div>
   </section>

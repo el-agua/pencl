@@ -1,15 +1,15 @@
 <template>
 <div class="container">
   <section class="section">
-    <div class="columns is-centered">
+    <div class="columns is-centered has-text-centered">
       <div class="is-size-1">
         <strong>{{ contestData.contestName }}</strong>
       </div>
     </div>
-    <div class="columns is-centered">
+    <div class="columns is-centered has-text-centered">
       <div class="is-size-5">Organizer: {{ contestData.creator }}</div>
     </div>
-     <div class="columns is-centered">
+     <div class="columns is-centered has-text-centered">
       <div v-if="contestData.desc!=null" class="is-size-3"><strong>Description:</strong></div>
     </div>
     <div class="container">
@@ -17,7 +17,7 @@
         <strong>{{contestData.desc}}</strong>
       </div>
     </div>
-    <div class="columns is-centered">
+    <div class="columns is-centered has-text-centered">
       <div v-if="contestData.rules!=null" class="is-size-3"><strong>Rules:</strong></div>
     </div>
   
@@ -30,10 +30,10 @@
 
     <section class="section">
       <div id="margini">
-        <div class="columns is-centered">
+        <div class="columns is-centered has-text-centered">
           <div class="is-size-3"><strong>Testing Window:</strong></div>
         </div>
-        <div class="columns is-centered">
+        <div class="columns is-centered has-text-centered">
           <div class="is-size-5" v-if="contestData.dates">
             {{ new Date(contestData.dates[0]).toUTCString() }} to
             {{ new Date(contestData.dates[1]).toUTCString() }}
@@ -42,34 +42,32 @@
       </div>
       <div v-if="(done == false) & (start == true)">
         <div id="margini">
-          <div class="columns is-centered">
-            <div class="buttons">
+          <div class="columns is-centered has-text-centered">
               <b-button @click="prompt" class="is-triple is-large"
                 ><strong>Start Contest</strong></b-button
               >
-            </div>
           </div>
         </div>
         <div id="margini">
-          <div class="columns is-centered">
+          <div class="columns is-centered has-text-centered">
             <div class="is-size-6">
               Not registered yet?
             </div>
           </div>
         </div>
       </div>
-        <div v-if="done == false">
-          <div class="columns is-centered">
-            <div class="buttons" id="margini">
-              <router-link :to="{ name: 'register' }">
+        <div id="margini" v-if="done == false">
+          <div class="columns is-centered has-text-centered">
+            
+              <router-link  :to="{ name: 'register' }">
                 <b-button class="is-secondary is-medium">
                   <strong>Register</strong>
                 </b-button>
               </router-link>
-            </div>
+           
           </div>
           </div>
-      <div class="columns is-centered">
+      <div class="columns is-centered has-text-centered">
         <div class="is-size-3"><strong>Leaderboard:</strong></div>
       </div>
       <b-table
@@ -90,7 +88,7 @@
           </b-table-column>
         </template>
       </b-table>
-      <div class="columns is-centered" v-else>
+      <div class="columns is-centered has-text-centered" v-else>
         <div class="is-size-6">No submissions yet!</div>
       </div>
     </section>
