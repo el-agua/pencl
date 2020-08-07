@@ -9,7 +9,7 @@
                   <p class="is-size-7 has-text-dark">{{`${numOfPartic} Questions`}}</p>
                 </router-link>
               </div>
-             <footer  class="card-footer is-coolA">
+             <footer  class="card-footer is-coolR">
               <div class="card-footer-item">
                  <div  class="icon is-small">
                    <transition name="fade">
@@ -60,14 +60,14 @@ export default {
 .box{
   box-shadow: 0 0.5em 1em -0.125em rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.02)
 }
-.is-coolA{
+.is-coolR{
   background-color:#ebc600;
   color: white;
   border-color: transparent;
   border-radius: 0px 0px 6px 6px;
   transition: 0.3s;
 }
-.is-coolA:hover{
+.is-coolR:hover{
   background-color: #2B4570;
   
 }
