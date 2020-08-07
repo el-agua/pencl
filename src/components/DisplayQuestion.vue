@@ -1,8 +1,8 @@
 <template>
   <div class="columns is-centered">
     <div class="column is-three-fifths">
-      <div id="rounded-card" class="card">
-        <div class="card-content">
+      <div class="box">
+       
           <div class="is-size-4">
             <strong>Question {{ answer.index }}</strong>
           </div>
@@ -22,7 +22,6 @@
               </b-field>
             </div>
           </div>
-        </div>
       </div>
     </div>
   </div>

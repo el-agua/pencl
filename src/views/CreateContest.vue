@@ -1,21 +1,29 @@
 <template>
   <section class="section">
     <div class="columns is-centered">
+      <div class="is-size-3 has-text-black">
+               <strong>Create Contest</strong>
+              </div>
+      </div>
+      <div class="columns is-centered">
+      <div class="is-size-4 has-text-dark">
+              Making memories.
+              </div>
+      </div>
+    <div class="columns is-centered">
       <div class="column is-4">
-        <div id="rounded-card" class="card">
+        <div class="box">
           <div class="container">
-            <header class="card-content">
-              <p class="card-header-title is-centered is-size-3">
-                Contest Creation
-              </p>
-            </header>
-            <div class="card-content">
+            
+              
+            
+           
                 <div class="columns is-centered">
             
             <div class="is-size-4"><strong>Planning & Setup</strong></div>
             </div>
               <div class="columns is-centered">
-                <div class="column is-four-fifths">
+                <div class="column is-12">
                      
                   <b-field label="Contest Name"
                   :type="{
@@ -24,14 +32,14 @@
                     :message="{
                         'This field is required!': (errors.contestName==false)
                     }">
-                    <b-input @blur="contestNameCheck" v-model="contestName" placeholder="Contest Name" type="text">
+                    <b-input size="is-large" @blur="contestNameCheck" v-model="contestName" placeholder="Contest Name" type="text">
                     </b-input>
                   </b-field>
                 </div>
               </div>
               
               <div class="columns is-centered">
-                <div class="column is-four-fifths">
+                <div class="column is-12">
                   <b-field label="Start of Testing Window"
                   :type="{
                       'is-danger': (errors.dates==false),
@@ -40,6 +48,7 @@
                         'This field is required!': (errors.dates==false)
                     }">
           <b-datetimepicker
+          size="is-large"
             placeholder="Click to select..."
             :min-datetime="minDate"
             :max-datetime="dates[1]"
@@ -50,7 +59,7 @@
      </div>
             </div>
              <div class="columns is-centered">
-                <div class="column is-four-fifths">
+                <div class="column is-12">
      <b-field label="End of Testing Window"
                   :type="{
                       'is-danger': (errors.dates==false),
@@ -59,6 +68,7 @@
                         'This field is required!': (errors.dates==false)
                     }">
           <b-datetimepicker
+          size="is-large"
             placeholder="Click to select..."
             :min-datetime="dates[0]"
             v-model="dates[1]"
@@ -68,7 +78,7 @@
                 </div>
             </div>
              <div class="columns is-centered">
-                <div class="column is-four-fifths">
+                <div class="column is-12">
                      
                   <b-field label="Duration (in minutes)"
                   :type="{
@@ -79,18 +89,33 @@
                         ($v.duration.integer == false) && (duration != ''),
                         'This field is required!': (errors.duration==false)
                     }">
-                    <b-input @blur="durationCheck" v-model="duration" placeholder="Duration" type="text">
+                    <b-input size="is-large" @blur="durationCheck" v-model="duration" placeholder="Duration" type="text">
                     </b-input>
                   </b-field>
                 </div>
               </div>
-            
+            <div class="columns is-centered">
+                <div class="column is-12">
+                  <b-field label="Description">
+                    <b-input size="is-large" v-model="desc" placeholder="Description" type="textarea">
+                    </b-input>
+                  </b-field>
+                </div>
+              </div>
+               <div class="columns is-centered">
+                <div class="column is-12">
+                  <b-field label="Rules">
+                    <b-input size="is-large" v-model="rules" placeholder="Rules" type="textarea">
+                    </b-input>
+                  </b-field>
+                </div>
+              </div>
             <div class="columns is-centered">
             
             <div class="is-size-4"><strong>Awarding Points</strong></div>
             </div>
             <div class="columns is-centered">
-                <div class="column is-four-fifths">
+                <div class="column is-12">
                   <b-field label="Points Per Correct Answer"
                   :type="{
                       'is-danger': ($v.score0.decimal == false)||(errors.score0==false),
@@ -100,13 +125,13 @@
                         ($v.score0.decimal == false) && (score0 != ''),
                         'This field is required!': (errors.score0==false)
                     }">
-                    <b-input @blur="score0Check" v-model="score0" placeholder="Points Per Correct Answer" type="text">
+                    <b-input size="is-large" @blur="score0Check" v-model="score0" placeholder="Points Per Correct Answer" type="text">
                     </b-input>
                   </b-field>
                 </div>
               </div>
               <div class="columns is-centered">
-                <div class="column is-four-fifths">
+                <div class="column is-12">
                   <b-field label="Points Per Blank Answer"
                   :type="{
                       'is-danger': ($v.score1.decimal == false)||(errors.score1==false),
@@ -116,13 +141,13 @@
                         ($v.score1.decimal == false) && (score1 != ''),
                         'This field is required!': (errors.score1==false)
                     }">
-                    <b-input @blur="score1Check" v-model="score1" placeholder="Points Per Blank Answer" type="text">
+                    <b-input size="is-large" @blur="score1Check" v-model="score1" placeholder="Points Per Blank Answer" type="text">
                     </b-input>
                   </b-field>
                 </div>
               </div>
               <div class="columns is-centered">
-                <div class="column is-four-fifths">
+                <div class="column is-12">
                   <b-field label="Penalty Per Incorrect Answer"
                   :type="{
                       'is-danger': ($v.score2.decimal == false)||(errors.score2==false),
@@ -132,17 +157,18 @@
                         ($v.score2.decimal == false) && (score2 != ''),
                         'This field is required!': (errors.score2==false)
                     }">
-                    <b-input @blur="score2Check" v-model="score2" placeholder="Penalty Per Incorrect Answer" type="text">
+                    <b-input size="is-large" @blur="score2Check" v-model="score2" placeholder="Penalty Per Incorrect Answer" type="text">
                     </b-input>
                   </b-field>
                 </div>
               </div>
+              
                 <div class="columns is-centered">
             
             <div class="is-size-4"><strong>Problem Sets</strong></div>
             </div>
               <div class="columns is-centered">
-                <div class="column is-four-fifths">
+                <div class="column is-12">
                  <b-field label="Contest Problem Set"
                  :type="{
                       'is-danger': (errors.testSet==false),
@@ -150,7 +176,7 @@
                     :message="{
                         'This field is required!': (errors.testSet==false)
                     }">
-               <b-select @blur="testSetCheck" v-model="testSet" placeholder="Problem Set" expanded>
+               <b-select size="is-large" @blur="testSetCheck" v-model="testSet" placeholder="Problem Set" expanded>
                 <option v-for="sets in objectSet" :key="sets.set">
                     {{sets.set}}
                 </option>
@@ -162,26 +188,28 @@
 
               </div>
               <div  class="columns is-centered">
-                  <div class="is-size-7">Note: Using public sets may decrease the quality of your contest.</div>
+                  <div class="is-size-6">Note: Using public sets may decrease the quality of your contest.</div>
                 </div>
               <section class="section">
                <div class="columns is-centered">
             <b-field >
-              <b-checkbox v-model="linkOnly">Contest is only accessible by link.</b-checkbox>
+              <b-checkbox size="is-large" v-model="linkOnly">Contest is only accessible by link.</b-checkbox>
               </b-field>
               </div>
               </section>
               <div class="columns is-centered">
+                <div class="column is-12">
                 <div class="buttons">
-                  <b-button type="is-secondary" @click="submitForm">
-                   <strong> Register</strong>
+                  <b-button type="is-secondary" size="is-large" @click="submitForm" expanded>
+                   <strong> Create</strong>
                   </b-button>
+                </div>
                 </div>
               </div>
               
             </div>
           </div>
-        </div>
+        
       </div>
     </div>
   </section>
@@ -208,6 +236,8 @@ export default {
       contestName: "",
       duration: "",
       setId: "",
+      desc: "",
+      rules:"",
       listOfSets: [],
       objectSet: [],
       creator: "",
@@ -262,7 +292,9 @@ export default {
         duration: this.duration,
         scoring: this.scoring,
         setId: this.setId,
-        creator: this.creator
+        creator: this.creator,
+        desc: this.desc,
+        rules: this.rules
       }
       console.log(contest)
   contestService.addContest(contest)
@@ -371,5 +403,8 @@ contestNameCheck(){
 <style>
 #rounded-card {
   border-radius: 20px;
+}
+.box{
+  box-shadow: 0 0.5em 1em -0.125em rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.02)
 }
 </style>

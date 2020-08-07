@@ -74,6 +74,11 @@ Vue.use(VueRouter)
     component: () => import('../views/EditSet.vue')
   },
   {
+    path: '/finish',
+    name: 'Finish',
+    component: () => import('../views/Finish.vue')
+  },
+  {
 
   
     path: '/contest/:id',

@@ -1,18 +1,22 @@
 <template>
   <section class="section">
+     <div class="columns is-centered">
+      <div class="is-size-3 has-text-black has-text-centered">
+               <strong>Sign Up</strong>
+              </div>
+      </div>
+      <div class="columns is-centered has-text-centered">
+      <div class="is-size-4 has-text-dark">
+              To infinity and beyond.
+              </div>
+      </div>
     <div class="columns is-centered">
       <div class="column is-4">
-        <div id="rounded-card" class="card">
+        <div class="box">
           <div class="container">
-            <header class="card-content">
-              <p class="card-header-title is-centered is-size-3">
-                Sign Up
-              </p>
-            </header>
-            <div class="card-content">
               <div class="columns is-centered">
-                <div class="column is-four-fifths">
-                  <b-field label="Email"
+                <div class="column is-12">
+                  <b-field 
                   :type="{
                       'is-danger': ($v.email.email == false)||(errors.email==false),
                     }"
@@ -21,15 +25,15 @@
                         ($v.email.email == false) &&(email != ''),
                         'This field is required!': (errors.email==false)
                     }">
-                    <b-input @blur="emailCheck" placeholder="Email" type="email" v-model="email">
+                    <b-input icon="mail" size="is-large" @blur="emailCheck" placeholder="Email" type="email" v-model="email">
                     </b-input>
                   </b-field>
                 </div>
               </div>
               <div class="columns is-centered">
-                <div class="column is-four-fifths">
+                <div class="column is-12">
                   <b-field
-                    label="Username"
+                  
                     :type="{
                       'is-danger': ($v.username.alphaNum == false)|(errors.username==false)|(isunique==false),
                     }"
@@ -41,18 +45,20 @@
                     }"
                   >
                     <b-input
+                    icon="account"
                       placeholder="Username"
                       type="text"
                       v-model="username"
                       @blur="usernameCheck"
+                      size="is-large"
                     >
                     </b-input>
                   </b-field>
                 </div>
               </div>
               <div class="columns is-centered">
-                <div class="column is-two-fifths">
-                  <b-field label="Password"
+                <div class="column is-6">
+                  <b-field 
                   :type="{
                       'is-danger': (errors.password==false),
                     }"
@@ -60,17 +66,19 @@
                         'This field is required!': (errors.password==false)
                     }">
                     <b-input
+                    icon="lock"
                       placeholder="Password"
                       type="password"
                       v-model="password"
                       @blur="passwordCheck"
+                      size="is-large"
                     >
                     </b-input>
                   </b-field>
                 </div>
-                <div class="column is-two-fifths">
+                <div class="column is-6">
                   <b-field
-                    label="Confirm Password"
+                    
                     :type="{
                       'is-danger': $v.passConfirm.sameAsPassword == false,
                     }"
@@ -83,26 +91,32 @@
                       placeholder="Confirm Password"
                       type="password"
                       v-model="passConfirm"
+                      icon="lock"
+                      size="is-large"
                     >
                     </b-input>
                   </b-field>
                 </div>
               </div>
               <div class="columns is-centered has-text-centered">
-                  <b-button type="is-secondary" @click="submitForm">
-                    Register
+                <div class="column is-12">
+                  <b-button type="is-secondary" size="is-large" @click="submitForm" expanded>
+                    <strong>Register</strong>
                   </b-button>
+                  </div>
               </div>
+                
+            </div>
+          </div>
+      </div>
+    </div>
+    <div class="columns is-centered">
               <div class="has-text-centered">
                 <router-link to="/login" class="is-size-7"
                   >Already have an account?</router-link
                 >
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+              </div>
   </section>
 </template>
 
@@ -191,5 +205,8 @@ export default {
 <style>
 #rounded-card {
   border-radius: 20px;
+}
+.box{
+  box-shadow: 0 0.5em 1em -0.125em rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.02)
 }
 </style>

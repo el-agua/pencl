@@ -54,7 +54,7 @@ export default {
 
 <style>
 #rounded-card {
-  border-radius: 20px;
+  border-radius: 6px;
 }
 #margina{
   margin-top: 10px;

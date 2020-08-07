@@ -44,7 +44,7 @@ export default {
 
 <style>
 #rounded-cardD{
-  border-radius: 20px;
+  border-radius: 6px;
   transition: 0.3s;
   height: 100%;
 }
@@ -52,16 +52,19 @@ export default {
   transform: scale(1.05);
 }
 #rounded-card {
-  border-radius: 20px;
+  border-radius: 6px;
 }
 #margini{
   margin-bottom: 20px;
 }
+.box{
+  box-shadow: 0 0.5em 1em -0.125em rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.02)
+}
 .is-coolA{
-  background-color:#436EB1;
+  background-color:#ebc600;
   color: white;
   border-color: transparent;
-  border-radius: 0px 0px 20px 20px;
+  border-radius: 0px 0px 6px 6px;
   transition: 0.3s;
 }
 .is-coolA:hover{

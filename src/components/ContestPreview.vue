@@ -57,7 +57,7 @@ export default {
 
 <style>
 #rounded-cardC {
-  border-radius: 20px;
+  border-radius: 6px;
   transition: 0.3s;
   height: 100%;
   min-height: 191px
@@ -65,11 +65,14 @@ export default {
 #rounded-cardC:hover{
   transform: scale(1.05);
 }
+.box{
+  box-shadow: 0 0.5em 1em -0.125em rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.02)
+}
 .is-cool{
-  background-color:#436EB1;
+  background-color:#FC766AFF;
   color: white;
   border-color: transparent;
-  border-radius: 0px 0px 20px 20px;
+  border-radius: 0px 0px 6px 6px;
   transition: 0.3s;
 }
 .is-cool:hover{

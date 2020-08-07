@@ -1,22 +1,28 @@
 <template>
   <section class="section">
+    <div class="columns is-centered has-text-centered">
+      <div id="shadowy" class="is-size-3 has-text-black">
+               <strong>Login</strong>
+              </div>
+      </div>
+      <div class="columns is-centered has-text-centered">
+      <div class="is-size-4 has-text-dark">
+              Greatness awaits.
+              </div>
+      </div>
     <div class="columns is-centered">
-      <div class="column is-4">
-        <div id="rounded-card" class="card">
+      <div class="column is-3">
+        <div class="box">
           <div class="container">
-            <header class="card-content">
-              <p class="card-header-title is-centered is-size-3">
-               Login
-              </p>
-            </header>
-            <div class="card-content">
               <div class="columns is-centered">
-                <div class="column is-four-fifths">
+                <div class="column is-12">
                   <b-field
-                    label="Username"
+  
                     :type="{
                       'is-danger': ($v.username.alphaNum == false)|(errors.username==false)|(match==false),
                     }"
+          
+                    
                     :message="{
                       'A username should only have letters and numbers! Right?':
                         ($v.username.alphaNum == false) & (username != ''),
@@ -27,6 +33,8 @@
                     <b-input
                       placeholder="Username"
                       type="text"
+                      size="is-large"
+                      icon="account"
                       v-model="username"
                       @blur="usernameCheck"
                     >
@@ -35,17 +43,22 @@
                 </div>
               </div>
               <div class="columns is-centered">
-                <div class="column is-four-fifths">
-                  <b-field label="Password"
+                <div class="column is-12">
+                  <b-field 
                   :type="{
                       'is-danger': (errors.password==false),
                     }"
                     :message="{
                         'This field is required!': (errors.password==false)
-                    }">
+                    }"
+
+                  
+                    >
                     <b-input
                       placeholder="Password"
+                      icon="lock"
                       type="password"
+                      size="is-large"
                       v-model="password"
                       @blur="passwordCheck"
                     >
@@ -54,20 +67,23 @@
                 </div>
               </div>
               <div class="columns is-centered has-text-centered">
-                  <b-button type="is-secondary" @click="submitForm">
-                    Login
+                <div class="column is-12">
+                  <b-button size="is-large" type="is-secondary" @click="submitForm" expanded>
+                    <strong>Login</strong>
                   </b-button>
               </div>
+              </div>
+            </div>
+            </div>
+          </div>
+      </div>
+    <div class="columns is-centered">
               <div class="has-text-centered">
                 <router-link to="/signup" class="is-size-7"
                   >Don't have an account?</router-link
                 >
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+              </div>
   </section>
 </template>
 
@@ -150,6 +166,12 @@ export default {
 
 <style>
 #rounded-card {
-  border-radius: 20px;
+  border-radius: 4px;
+}
+.padd{
+  padding: 12px;
+}
+.box{
+  box-shadow: 0 0.5em 1em -0.125em rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.02)
 }
 </style>

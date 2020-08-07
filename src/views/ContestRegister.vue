@@ -1,19 +1,25 @@
 <template>
   <section class="section">
     <div class="columns is-centered">
+      <div class="is-size-3 has-text-black">
+               <strong>Contest Registration</strong>
+              </div>
+      </div>
+      <div class="columns is-centered">
+      <div class="is-size-4 has-text-dark">
+              Do you dare join the gauntlet?
+              </div>
+      </div>
+    <div class="columns is-centered">
       <div class="column is-4">
-        <div id="rounded-card" class="card">
-          <div class="container">
-            <header class="card-content">
-              <p class="card-header-title is-centered is-size-3">
-                Register
-              </p>
-            </header>
-            <div class="card-content">
+        <div class="box">
+          
+         
+            
               <div class="columns is-centered">
-                <div class="column is-four-fifths">
+                <div class="column is-12">
                   <b-field
-                    label="Display Name"
+                    
                     :type="{
                       'is-danger': (errors.display==false),
                     }"
@@ -23,7 +29,9 @@
                     }"
                   >
                     <b-input
+                    icon="pencil"
                       placeholder="Display Name"
+                      size="is-large"
                       type="text"
                       v-model="display"
                       @blur="displayCheck"
@@ -33,8 +41,8 @@
                 </div>
               </div>
               <div class="columns is-centered">
-                <div class="column is-four-fifths">
-                  <b-field label="Email"
+                <div class="column is-12">
+                  <b-field 
                   :type="{
                       'is-danger': ($v.email.email == false)||(errors.email==false),
                     }"
@@ -43,23 +51,25 @@
                         ($v.email.email == false) && (email != ''),
                         'This field is required!': (errors.email==false)
                     }">
-                    <b-input @blur="emailCheck" placeholder="Email" type="email" v-model="email">
+                    <b-input icon="mail" size="is-large" @blur="emailCheck" placeholder="Email" type="email" v-model="email">
                     </b-input>
                   </b-field>
                 </div>
               </div>
               <div class="columns is-centered">
+                <div class="column is-12">
                 <div class="buttons">
-                  <b-button type="is-secondary" @click="submitForm">
-                    Register
+                  <b-button size="is-large" type="is-secondary" @click="submitForm" expanded>
+                    <strong>Register</strong>
                   </b-button>
+                </div>
                 </div>
               </div>
   
-            </div>
+          
           </div>
         </div>
-      </div>
+
     </div>
   </section>
 </template>
@@ -156,5 +166,8 @@ export default {
 <style>
 #rounded-card {
   border-radius: 20px;
+}
+.box{
+  box-shadow: 0 0.5em 1em -0.125em rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.02)
 }
 </style>

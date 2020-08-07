@@ -4,10 +4,10 @@
   <Timer :timerStart="timerStart" @timesUp="finishTest" :duration="duration" />
  <DisplayQuestion ref="questionModel" @answerSend="appendAnswer" v-for="question in questions"  :key="question.id" :number="question.id" :statement="question.statement"/>
   </div>
-  <div class="columns is-centered">
+  <div class="columns is-centered" id="plzmargin">
   <div class="buttons">
-    <b-button @click="submitTest" class="is-triple">
-      Submit
+    <b-button size="is-medium" @click="submitTest" class="is-triple">
+      <strong>Submit</strong>
       </b-button>
   </div>
   </div>
@@ -93,10 +93,9 @@ export default {
         
       },
       finishTest(){
-        console.log('finished?')
         contestService.finish(this.$route.params.userID, this.testID)
         .then(()=>{
-          router.push('/')
+          router.push('/finish')
           this.$router.go()
         }
         )
@@ -129,6 +128,7 @@ export default {
    .catch(e=>{
      console.log(this.$route.params.userID)
       console.log(e)
+      console.log("Hello")
       router.push('/signup')
    }
    )
@@ -137,3 +137,11 @@ export default {
 }
 }
 </script>
+<style>
+.box{
+  box-shadow: 0 0.5em 1em -0.125em rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.02)
+}
+#plzmargin{
+  margin-top: 20px;
+}
+</style>

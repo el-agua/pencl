@@ -13,7 +13,7 @@
                    </router-link>
               </div>
               
-              <footer  class="card-footer is-cool">
+              <footer  class="card-footer is-coolN">
               <div @click="removeSet" class="card-footer-item">
                  <div  class="icon is-small">
                    <transition name="fade">
@@ -65,5 +65,19 @@ export default {
 }
 #margini{
   margin-bottom: 20px;
+}
+.is-coolN{
+  background-color:#5B84B1FF;
+  color: white;
+  border-color: transparent;
+  border-radius: 0px 0px 6px 6px;
+  transition: 0.3s;
+}
+.is-coolN:hover{
+  background-color: #d11a2a;
+  
+}
+.box{
+  box-shadow: 0 0.5em 1em -0.125em rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.02)
 }
 </style>

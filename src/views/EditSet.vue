@@ -3,14 +3,14 @@
     
     <div class="container">
         <div class="columns is-centered">
-        <div class="column is-three-fifths">
-        <div id="rounded-card" class="card">
-            <div class="card-content">
-                <p class="is-size-1">{{set.set}}</p>
+        <div class="column is-6">
+        <div class="box">
+            
+                <p class="is-size-1"><strong>{{set.set}}</strong></p>
                  <b-field>
                 <b-switch v-model="set.private">Private</b-switch>
                 </b-field>
-            </div>
+          
         </div>
         </div>
         </div>
@@ -18,16 +18,18 @@
         <EditQuestion @questionDelete="deleteProblem" @editSend="appendProblems" ref="questionModel" 
         v-for="question in questions" :key="question.id" :number='questions.indexOf(question)+1' :statement="question.statement" :answer="question.answers" :length="questions.length" :questionShell="question" :solution="question.solution" :author="question.author"/>
         <div class="columns is-centered">
+          <div class="columns is-6">
         <div id="margini" class=buttons>
-          <b-button @click="addToArray" class="is-secondary is-medium">
-            Add Question
+          <b-button icon-left="plus" @click="addToArray" class="is-secondary is-large" expanded>
+            <strong>Add Question</strong>
           </b-button>
+        </div>
         </div>
         </div>
          <div class="columns is-centered">
         <div id="margini" class=buttons>
-          <b-button @click="pressButton" class="is-triple is-medium">
-            Save
+          <b-button icon-left="content-save" @click="pressButton" class="is-triple is-medium">
+            <strong>Save</strong>
           </b-button>
         </div>
         </div>
@@ -131,7 +133,10 @@ export default {
   border-radius: 20px;
 }
 #margini {
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.box{
+  box-shadow: 0 0.5em 1em -0.125em rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.02)
 }
 </style>

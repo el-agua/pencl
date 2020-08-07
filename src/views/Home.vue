@@ -14,13 +14,17 @@
           </h1>
 
           <div class="buttons" id="learning">
+            <router-link to="/signup">
+            
             <b-button
               icon-right="chevron-right"
               size="is-large"
               class="is-primary"
+              
             >
               <strong> Sign Up Now</strong>
             </b-button>
+            </router-link>
           </div>
         </div>
       </div>
@@ -31,8 +35,8 @@
           <div class="columns">
 
             <div class="column">
-              <div id="rounded-cardA" class="card">
-                <div class="card-content">
+              <div id="rounded-cardA" class="box">
+                
                   <div class="columns is-centered">
                     <div class="column is-five-sixths">
                       <div class="is-size-6 has-text-white doublespace">
@@ -42,15 +46,14 @@
                         LATEX. Don't know LATEX? That's ok, plain text is
                         supported too!
                       </div>
-                    </div>
-                  </div>
+                </div>
                 </div>
               </div>
               </div>
 
               <div class="column">
-                <div id="rounded-cardB" class="card">
-                  <div class="card-content">
+                <div id="rounded-cardB" class="box">
+                 
                     <div class="columns is-centered">
                       <div class="column is-five-sixths">
                         <div class="is-size-6 has-text-white doublespace">
@@ -61,13 +64,13 @@
                         </div>
                       </div>
                     </div>
-                  </div>
+                 
                 </div>
               </div>
 
               <div class="column">
-                <div id="rounded-cardA" class="card">
-                  <div class="card-content">
+                <div id="rounded-cardA" class="box">
+                  
                     <div class="columns is-centered">
                       <div class="column is-five-sixths">
                         <div class="is-size-6 has-text-white doublespace">
@@ -77,7 +80,7 @@
                         </div>
                       </div>
                     </div>
-                  </div>
+             
                 </div>
                 
               </div>
@@ -94,6 +97,7 @@
           </div>
           
 <div class="columns is-centered has-text-centered" id="learning">
+            <router-link to="/signup">
             
             <b-button
               icon-right="chevron-right"
@@ -103,7 +107,7 @@
             >
               <strong> Sign Up Now</strong>
             </b-button>
-         
+            </router-link>
           </div>
   
         </div>
@@ -132,14 +136,15 @@ export default {
 }
 #learning {
   margin-top: 30px;
+  
 }
 #rounded-cardA {
-  border-radius: 20px;
+  
   background-color: #C84630;
   min-height: 224px;
 }
 #rounded-cardB {
-  border-radius: 20px;
+  
   background-color: #2B4570;
   min-height: 224px;
 }
@@ -148,5 +153,7 @@ export default {
 
   line-height: 2 ;
 }
-
+.box{
+  box-shadow: 0 0.5em 1em -0.125em rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.02)
+}
 </style>

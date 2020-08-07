@@ -1,18 +1,17 @@
 <template>
   <div class="columns is-centered">
-    <div class="column is-three-fifths">
-      <div id="rounded-card" class="card">
-        <div class="card-content">
+    <div class="column is-6">
+      <div class="box">
           <div class="level">
             <div class="level-left">
               <div class="level-item">
-                <p class="is-size-1">Question {{number}}</p>
+                <p class="is-size-2">Question {{number}}</p>
               </div>
             </div>
             <div class="level-right">
               <div class="level-item">
                 <div class="buttons">
-                  <b-button @click="deleteQuestion" class="is-danger" icon-left="delete" >
+                  <b-button @click="deleteQuestion" class="is-danger is-icon-circle" icon-left="delete" >
   
                   </b-button>
                 </div>
@@ -27,7 +26,7 @@
                     <b-input
                       placeholder="Question"
                       type="textarea"
-                      size="is-medium"
+                    
                       v-model="question.statement"
                       required
                     >
@@ -45,7 +44,7 @@
                     <b-input
                       placeholder="Answer"
                       type="text"
-                      size="is-medium"
+                    
                       v-model="question.answers"
                       required
                     >
@@ -59,7 +58,7 @@
                     <b-input
                       placeholder="Solution"
                       type="textarea"
-                      size="is-medium"
+                     
                       v-model="question.solution"
                     >
                     </b-input>
@@ -76,14 +75,14 @@
                     <b-input
                       placeholder="Source"
                       type="text"
-                      size="is-medium"
+                    
                       v-model="question.author"
                     >
                     </b-input>
             </b-field>
             </div>
         </div>
-      </div>
+
     </div>
   </div>
 </template>
@@ -142,6 +141,9 @@ props:[
 <style>
 #rounded-card {
   border-radius: 20px;
+}
+.is-icon-circle{
+  border-radius: 9999px;
 }
 #littlefield{
   margin-bottom: 25px;

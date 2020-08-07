@@ -1,4 +1,5 @@
 <template>
+<div class="container">
   <section class="section">
     <div class="columns is-centered">
       <div class="is-size-1">
@@ -7,6 +8,24 @@
     </div>
     <div class="columns is-centered">
       <div class="is-size-5">Organizer: {{ contestData.creator }}</div>
+    </div>
+     <div class="columns is-centered">
+      <div v-if="contestData.desc!=null" class="is-size-3"><strong>Description:</strong></div>
+    </div>
+    <div class="container">
+      <div id="predata" class="is-size-5">
+        <strong>{{contestData.desc}}</strong>
+      </div>
+    </div>
+    <div class="columns is-centered">
+      <div v-if="contestData.rules!=null" class="is-size-3"><strong>Rules:</strong></div>
+    </div>
+  
+      <div class="container">
+      <div id="predata" class="is-size-5">
+        <strong>{{contestData.rules}}</strong>
+   
+      </div>
     </div>
 
     <section class="section">
@@ -44,7 +63,7 @@
             <div class="buttons" id="margini">
               <router-link :to="{ name: 'register' }">
                 <b-button class="is-secondary is-medium">
-                  Register
+                  <strong>Register</strong>
                 </b-button>
               </router-link>
             </div>
@@ -76,6 +95,7 @@
       </div>
     </section>
   </section>
+  </div>
 </template>
 
 <script>
@@ -93,7 +113,13 @@ export default {
   },
   methods: {
     prompt() {
-      this.$buefy.dialog.prompt({
+      this.$buefy.dialog.confirm({
+        title: "Rules",
+        message: 'I Confirm that I agree to the rules of this contest.',
+        trapFocus: false,
+        confirmText: "Agree",
+        onConfirm: () => {
+          this.$buefy.dialog.prompt({
         message: `What's your test code?`,
         inputAttrs: {
           placeholder: "e.g. abc123",
@@ -104,6 +130,9 @@ export default {
           router.push(`/contest/${this.testID}/exam/${value}`);
         },
       });
+        },
+      })
+      
     },
     refresh() {
       contestService.publicContest(this.testID).then((u) => {
@@ -146,5 +175,11 @@ export default {
 <style scoped>
 #margini {
   margin-bottom: 40px;
+}
+.box{
+  box-shadow: 0 0.5em 1em -0.125em rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.02)
+}
+#predata{
+    white-space: pre-wrap;
 }
 </style>

@@ -51,8 +51,7 @@ export default {
 @import "~bulma/sass/utilities/_all";
 $footer-background-color: #FFFFFF;
 // Set your colors
-$family-primary: 'Poppins', 'sans-serif';
-//$body-background-color: #e8ead3;
+$family-primary: 'Roboto', 'sans-serif';
 $triple: #22AED1;
 $triple-invert: findColorInvert($triple);
 $tangerine: #ffcc00;

@@ -11,26 +11,22 @@
       <transition name="fade">
       <div class="contests" v-show="whichToShow=='contests'">
         <div class="columns is-multiline is-flex">
-          <div class="column is-4">
+          <div class="column is-4 is-12-mobile">
             <router-link to="/createContest">
               <div
                 id="rounded-cardC"
                 class="card is-vertical-center"
               >
-                <div class="card-content fat">
-                  <div class="columns is-centered">
-                    <figure class="image is-64x64">
-                      <img
-                        src="https://hotemoji.com/images/dl/d/heavy-plus-sign-emoji-by-twitter.png"
-                      />
-                    </figure>
+                <div class="card-content fat has-text-centered" style="align-items: center">
+                     
+                    <i class="mdi mdi-plus" style="font-size: 100px"/>
+                  
                   </div>
-                </div>
               </div>
             </router-link>
           </div>
           <div
-            class="column is-4 "
+            class="column is-4 is-12-mobile "
             v-for="contest in contests"
             :key="contest._id"
           >
@@ -47,26 +43,22 @@
       <transition name="fade">
       <div class="problems" v-show="whichToShow=='problems'">
         <div class="columns is-multiline is-flex">
-          <div class="column is-4">
+          <div class="column is-4 is-12-mobile">
             <router-link to="/upload">
               <div
                 id="rounded-cardC"
                 class="card is-vertical-center"
               >
-                <div class="card-content fat">
-                  <div class="columns is-centered">
-                    <figure class="image is-64x64">
-                      <img
-                        src="https://hotemoji.com/images/dl/d/heavy-plus-sign-emoji-by-twitter.png"
-                      />
-                    </figure>
+                <div class="card-content fat has-text-centered" style="align-items: center">
+                     
+                    <i class="mdi mdi-plus" style="font-size: 100px"/>
+                  
                   </div>
-                </div>
               </div>
             </router-link>
           </div>
           <div
-            class="column is-4 "
+            class="column is-4 is-12-mobile"
             v-for="set in sets"
             :key="set.index"
           >
@@ -163,5 +155,8 @@ export default {
 }
 .cool {
   background-color: white;
+}
+.card{
+  box-shadow: 0 0.5em 1em -0.125em rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.02)
 }
 </style>

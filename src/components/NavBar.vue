@@ -6,16 +6,16 @@
           </b-navbar-item>
       </template>
        <template v-if="user.username!=null" slot="start">
-            <b-navbar-item tag="router-link" v-for="menuItem in menuItems" :key="menuItem.id" :to="menuItem.link">
-                <b-icon size="is-small" :type="menuItem.color" :icon="menuItem.icon"></b-icon>
+            <b-navbar-item id="splititup" tag="router-link" class="has-text-black" v-for="menuItem in menuItems" :key="menuItem.id" :to="menuItem.link">
+                
 		<span></span>
-                {{menuItem.name}}
+               {{menuItem.name}}
 
             </b-navbar-item>
         </template>
         <template v-else slot="start">
-            <b-navbar-item tag="router-link" v-for="defaultItem in defaultItems" :key="defaultItem.id" :to="defaultItem.link">
-                <b-icon size="is-small" :type="defaultItem.color" :icon="defaultItem.icon"></b-icon>
+            <b-navbar-item id="splititup" tag="router-link" class="has-text-black has-text-centered" v-for="defaultItem in defaultItems" :key="defaultItem.id" :to="defaultItem.link">
+               
 		<span></span>
                 {{defaultItem.name}}
 
@@ -38,7 +38,7 @@
             </b-navbar-item>
             <b-navbar-item v-else tag="div">
                  
-            <b-navbar-dropdown :label="user.username"  >
+            <b-navbar-dropdown class="has-text-black" :label="user.username"  >
                 <b-navbar-item href="/account">
                     Account
                 </b-navbar-item>
@@ -64,30 +64,24 @@ export default {
         return{
             username: 'coolio5000',
             loggedIn: true,
-            menuItems:[{
-                id:1,
-                name: 'ABOUT',
-                link: '/about',
-                icon: 'heart',
-                color: 'is-secondary'
-            },
+            menuItems:[
             {
-                id:2,
-                name: 'CONTESTS',
+                id:1,
+                name: 'Contests',
                 link: '/findcontest',
                  icon: 'lead-pencil',
                  color: 'is-secondary'
             },
             {
-                id:3,
-                name: 'BROWSE',
+                id:2,
+                name: 'Browse',
                 link: '/search',
                  icon: 'magnify',
                  color: 'is-secondary'
             },
             {
-                id:4,
-                name: 'DASHBOARD',
+                id:3,
+                name: 'Dashboard',
                 link: '/dashboard',
                  icon: 'view-dashboard',
                  color: 'is-secondary'
@@ -96,14 +90,14 @@ export default {
             defaultItems:[
             {
                 id:1,
-                name: 'BROWSE',
+                name: 'Browse',
                 link: '/search',
                  icon: 'magnify',
                  color: 'is-secondary'
             },
             {
                 id:2,
-                name: 'CONTESTS',
+                name: 'Contests',
                 link: '/findcontest',
                  icon: 'lead-pencil',
                  color: 'is-secondary'
@@ -131,9 +125,9 @@ export default {
 <style>
 #bingbong {
   background: url("../assets/parachutefunblue.png") no-repeat center center;
-  background-size: 52px;
-  width: 52px;
-  margin-right: 10px;
+  background-size: 42px;
+  width: 42px;
+padding: 10px;
   margin-left: 5px
 }
 #bingbang {
@@ -141,5 +135,10 @@ export default {
   background-size: cover;
   width: 56px;
   margin-right: 10px
+}
+#splititup{
+    margin-left: 30px;
+   
+  
 }
 </style>
