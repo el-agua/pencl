@@ -19,7 +19,7 @@
               >
                 <div class="card-content fat has-text-centered" style="align-items: center">
                      
-                    <i class="mdi mdi-plus" style="font-size: 100px"/>
+                    <i class="mdi mdi-plus" style="font-size: 80px"/>
                   
                   </div>
               </div>
