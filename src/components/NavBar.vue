@@ -6,7 +6,7 @@
           </b-navbar-item>
       </template>
        <template v-if="user.username!=null" slot="start">
-            <b-navbar-item id="splititup" tag="router-link" class="has-text-black" v-for="menuItem in menuItems" :key="menuItem.id" :to="menuItem.link">
+            <b-navbar-item id="splititup" tag="router-link" class="has-text-black has-text-centered" v-for="menuItem in menuItems" :key="menuItem.id" :to="menuItem.link">
                 
 		<span></span>
                {{menuItem.name}}
@@ -24,7 +24,7 @@
        <template slot="end">
            <div>
             <b-navbar-item v-if="user.username==null" tag="div">
-                <div class="buttons">
+                <div class="buttons" id="centerplz">
                     <a href="/signup" class="button is-secondary">
                         <strong>Sign up</strong>
                     </a>
@@ -36,9 +36,9 @@
                 </div> 
                 
             </b-navbar-item>
-            <b-navbar-item v-else tag="div">
+            <b-navbar-item  v-show="((user.username!=null) && (windowWidth >= 1023))" tag="div" class="has-text-centered">
                  
-            <b-navbar-dropdown class="has-text-black" :label="user.username"  >
+            <b-navbar-dropdown  class="has-text-black" :label="user.username"  >
                 <b-navbar-item href="/account">
                     Account
                 </b-navbar-item>
@@ -46,6 +46,14 @@
                     Logout
                 </b-navbar-item>
             </b-navbar-dropdown>
+            </b-navbar-item>
+            <b-navbar-item  v-show="((user.username!=null) && (windowWidth < 1023))" tag="div" class="has-text-centered">
+                <b-navbar-item href="/account">
+                    Account
+                </b-navbar-item>
+                <b-navbar-item @click="logout">
+                    Logout
+                </b-navbar-item>
             </b-navbar-item>
             </div>
         </template>
@@ -62,6 +70,7 @@ export default {
     props:['user'],
     data(){
         return{
+            windowWidth: window.innerWidth,
             username: 'coolio5000',
             loggedIn: true,
             menuItems:[
@@ -114,11 +123,19 @@ export default {
                 this.$router.go()
             }
             )
-        }
+        },
+        onResize() {
+      this.windowWidth = window.innerWidth
+    }
     },
     mounted(){
-
-    }
+        this.$nextTick(() => {
+      window.addEventListener('resize', this.onResize);
+    })
+    },
+    beforeDestroy() { 
+    window.removeEventListener('resize', this.onResize); 
+  }
 }
 </script>
 
@@ -138,7 +155,14 @@ padding: 10px;
 }
 #splititup{
     margin-left: 30px;
-   
-  
+}
+#centerplz{
+    justify-content: center;
+}
+@media (max-width : 1023px) {
+#splititup{
+    margin-left: 0px;
+}
+
 }
 </style>

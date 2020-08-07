@@ -5,10 +5,10 @@
         <div class="column is-4">
         <div class="box">
             
-                <div class="columns is-centered">
+                <div class="columns is-centered has-text-centered">
                     <div class="is-size-4">My Account</div>
                     </div>
-                    <div class="columns is-centered">
+                    <div class="columns is-centered has-text-centered">
                     <div class="is-size-3"><strong>{{user.username}}</strong></div>
                     </div>
             
