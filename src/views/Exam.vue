@@ -96,7 +96,6 @@ export default {
         contestService.finish(this.$route.params.userID, this.testID)
         .then(()=>{
           router.push('/finish')
-          this.$router.go()
         }
         )
       },
