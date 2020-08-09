@@ -49,7 +49,7 @@ export default {
           contestService.autosave(this.$route.params.userID,this.testID,this.answers)
           .then(obj =>{
             console.log(obj)
-            if (Date.now() - obj.timerStart >= id.duration*60000 | obj.finished == true){
+            if (Date.now() - obj.timerStart >= id.duration*60000 || obj.finished == true){
               console.log(obj.finished)
                 this.finishTest()
             }else{
