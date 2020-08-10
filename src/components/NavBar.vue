@@ -25,13 +25,13 @@
            <div>
             <b-navbar-item v-if="user.username==null" tag="div">
                 <div class="buttons" id="centerplz">
-                    <a href="/signup" class="button is-secondary">
-                        <strong>Sign up</strong>
+                    <a href="/signup" class="button is-secondary is-outlined">
+                        Sign up
                     </a>
-                    <a href="/login" class="button is-primary">
-                        <strong>
+                    <a href="/login" class="button is-primary is-outlined">
+                     
                         Log in
-                        </strong>
+                        
                     </a>
                 </div> 
                 

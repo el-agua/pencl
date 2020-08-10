@@ -51,6 +51,8 @@ export default {
 @import "~bulma/sass/utilities/_all";
 $footer-background-color: #FFFFFF;
 // Set your colors
+$card-background-color: #f4f4f4;
+$box-background-color: #f4f4f4;
 $family-primary: 'Roboto', 'sans-serif';
 $triple: #22AED1;
 $triple-invert: findColorInvert($triple);
@@ -64,7 +66,6 @@ $danger: #d11a2a;
 $danger-invert: findColorInvert($danger);
 $twitter: #436EB1;
 $twitter-invert: findColorInvert($twitter);
-
 // Setup $colors to use as bulma classes (e.g. 'is-twitter')
 $colors: (
     "white": ($white, $black),

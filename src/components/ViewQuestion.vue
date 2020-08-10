@@ -1,34 +1,49 @@
 <template>
   <div class="columns is-centered">
-    <div class="column is-6">
-      <div id="rounded-card" class="card">
-        <div class="card-content" @click="solutionOn = !solutionOn">
-            <div v-show="solutionOn == false">
+    <div class="column is-5">
+      <div id="rounded-cardVQ" class="card">
+            
+              <div id="blue-bar" class="card-header">
+                  <div class="card-header-title">
+                    <div v-show="solutionOn == false">
               <div class="is-size-4">
-                <strong>Question {{ number }}</strong>
+                
+                <strong class="has-text-light">Question {{ number }}</strong>
               </div>
-
-              <div id="margina">
+              </div>
+               <div v-show="solutionOn == true">
+            <div class="is-size-4">
+              <strong class="has-text-light">Solution {{ number }}</strong>
+            </div>
+              </div>
+              </div>
+              </div>
+          <div class="card-content" @click="solutionOn = !solutionOn">
+            <div v-show="solutionOn == false">
+              <div>
                 <vue-mathjax :formula="question.statement"></vue-mathjax>
               </div>
             </div>
-          <div v-show="solutionOn == true">
-            <div class="is-size-4">
-              <strong>Solution {{ number }}</strong>
-            </div>
-            <div id="margina">
+            <div v-show="solutionOn == true">
+            <div >
               <div><strong>Answer:</strong> {{ question.answer }}</div>
             </div>
             <div id="margina">
+              
               <vue-mathjax :formula="question.solution"></vue-mathjax>
+    
             </div>
-          </div>
-          <div class="is-size-7">
+            </div>
+            <div class="is-size-7">
                 Source: ({{(source==' ')?'me':source}})
               </div>
-        </div>
+            </div>
+         
+            
+          </div>
+          
+      
       </div>
-    </div>
   </div>
 </template>
 
@@ -53,12 +68,18 @@ export default {
 </script>
 
 <style>
-#rounded-card {
+#rounded-cardVQ {
   border-radius: 6px;
 }
 #margina{
   margin-top: 10px;
-  margin-bottom: 10px
+  margin-bottom: 10px;
+  
+}
+#blue-bar{
+  background-color: #2B4570;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
 }
 
 

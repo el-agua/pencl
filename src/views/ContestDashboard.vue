@@ -9,7 +9,12 @@
      <a class="is-size-5" :href="`/contest/${$route.params.id}`"><strong>Contest Page</strong></a>
      </div>
     <section class='section'>
-    <div class="is-size-3"> <strong>Test Participants:</strong></div>
+        <div class="card" id="rounded-cardZ">
+        <div class="card-header" id="header-color">
+    <div class="card-header-title">
+                <div class="is-size-3"> <strong class="has-text-light">Test Participants:</strong></div>
+    </div>
+    </div>
      <b-table :data="particData" v-if="particData.length!=0" striped>
     
     <template slot-scope="props">
@@ -30,10 +35,18 @@
       </b-table-column>
     </template>
      </b-table>
-     <div class="is-size-6" v-else>No participants yet! </div>
+      <div class="card-content" v-else>
+     <div class="is-size-6">No participants yet! </div>
+     </div>
+     </div>
      </section>
      <section class='section'>
-         <div class="is-size-3"> <strong>Test Results:</strong></div>
+         <div class="card" id="rounded-cardZ">
+              <div class="card-header" id="header-color">
+    <div class="card-header-title">
+         <div class="is-size-3"> <strong class="has-text-light">Test Results:</strong></div>
+    </div>
+    </div>
          
      <b-table :data="submissionData" v-if="submissionData.length!=0" striped>
           <template slot-scope="props">
@@ -63,12 +76,22 @@
       </b-table-column>
     </template>
      </b-table>
-     <div class="is-size-6" v-else>No submissions yet! </div>
-     
+     <div class="card-content" v-else>
+     <div class="is-size-6" >No submissions yet! </div>
+     </div>
+     </div>
      </section>
      <section class="section">
-         <div class="is-size-3"> <strong>Results Distribution:</strong></div>
+         <div class="card" id="rounded-cardZ">
+               <div class="card-header" id="header-color">
+    <div class="card-header-title">
+         <div class="is-size-3"> <strong class="has-text-light">Results Distribution:</strong></div>
+    </div>
+    </div>
+    <div class="card-content">
       <Chart v-if="loaded" :chartdata="chartData" :options="chartOptions"/>
+      </div>
+      </div>
       </section>
      </section>
     
@@ -111,6 +134,9 @@ export default {
       scaleLabel: {
         display: true,
         labelString: 'Submissions'
+      },
+      ticks:{
+          beginAtZero: true
       }
     }],
     xAxes: [{
@@ -197,5 +223,14 @@ export default {
 <style>
 .box{
   box-shadow: 0 0.5em 1em -0.125em rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.02)
+}
+#rounded-cardZ{
+    box-shadow: 0 0.5em 1em -0.125em rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.02);
+    border-radius: 6px;
+}
+#header-color{
+    background-color: #2B4570;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
 }
 </style>
