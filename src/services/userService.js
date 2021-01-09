@@ -8,7 +8,7 @@ export const userService = {
   session,
   logout,
   changePassword,
-  changeEmail
+  changeEmail,
 };
 
 function register(user) {
@@ -41,12 +41,12 @@ function login(user) {
     .catch((e) => e);
 }
 
-function changePassword(username,password, newPassword) {
-  const userPackage={
+function changePassword(username, password, newPassword) {
+  const userPackage = {
     username: username,
     password: password,
-    newPassword: newPassword
-  }
+    newPassword: newPassword,
+  };
   return axios
     .post(`/api/users/changePassword`, userPackage)
     .then((u) => u.data)
@@ -54,11 +54,11 @@ function changePassword(username,password, newPassword) {
 }
 
 function changeEmail(username, email, newEmail) {
-  const emailPackage={
+  const emailPackage = {
     username: username,
     email: email,
-    newEmail: newEmail
-  }
+    newEmail: newEmail,
+  };
   return axios
     .post(`/api/users/changeEmail`, emailPackage)
     .then((u) => u.data)
@@ -72,9 +72,9 @@ function logout() {
     .catch((e) => e);
 }
 
-function session(){
-    return axios
+function session() {
+  return axios
     .post(`/api/users/sessionAccount`)
-    .then(u=> u.data)
-    .catch(e=>e)
+    .then((u) => u.data)
+    .catch((e) => e);
 }

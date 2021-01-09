@@ -1,16 +1,14 @@
 <script>
-import { Bar } from 'vue-chartjs'
+import { Bar } from "vue-chartjs";
 
 export default {
   extends: Bar,
-  props: ['chartdata', 'options'],
-  mounted () {
-    console.log(this.chartdata,this.options)
-    this.renderChart(this.chartdata, this.options)
-    
-  }
-}
+  props: ["chartdata", "options"],
+  mounted() {
+    console.log(this.chartdata, this.options);
+    this.renderChart(this.chartdata, this.options);
+  },
+};
 </script>
 
-<style>
-</style>
+<style></style>

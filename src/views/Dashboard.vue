@@ -4,78 +4,71 @@
       <div class="is-size-1">
         <strong>Dashboard:</strong>
         <b-tabs expanded @change="choose" class="block" size="is-large">
-          <b-tab-item label="Contests" icon="file"></b-tab-item>
+          <b-tab-item label="Tests" icon="file"></b-tab-item>
           <b-tab-item label="Problem Sets" icon="android-studio"></b-tab-item>
         </b-tabs>
       </div>
       <transition name="fade">
-      <div class="contests" v-show="whichToShow=='contests'">
-        <div class="columns is-multiline is-flex">
-          <div class="column is-4 is-12-mobile">
-            <router-link to="/createContest">
-              <div
-                id="rounded-cardC"
-                class="card is-vertical-center"
-              >
-                <div class="card-content fat has-text-centered" style="align-items: center">
-                     
-                    <i class="mdi mdi-plus" style="font-size: 80px"/>
-                  
+        <div class="contests" v-show="whichToShow == 'contests'">
+          <div class="columns is-multiline is-flex">
+            <div class="column is-4 is-12-mobile">
+              <router-link to="/createContest">
+                <div id="rounded-cardC" class="card is-vertical-center">
+                  <div
+                    class="card-content fat has-text-centered"
+                    style="align-items: center"
+                  >
+                    <i class="mdi mdi-plus" style="font-size: 80px" />
                   </div>
-              </div>
-            </router-link>
-          </div>
-          <div
-            class="column is-4 is-12-mobile "
-            v-for="contest in contests"
-            :key="contest._id"
-          >
-            <ContestPreview
-              :numberOfPartic="contest.participants.length"
-              :title="contest.contestName"
-              :dates="contest.dates"
-              :link="contest._id"
-            />
+                </div>
+              </router-link>
+            </div>
+            <div
+              class="column is-4 is-12-mobile "
+              v-for="contest in contests"
+              :key="contest._id"
+            >
+              <ContestPreview
+                :numberOfPartic="contest.participants.length"
+                :title="contest.contestName"
+                :dates="contest.dates"
+                :link="contest._id"
+              />
+            </div>
           </div>
         </div>
-      </div>
       </transition>
       <transition name="fade">
-      <div class="problems" v-show="whichToShow=='problems'">
-        <div class="columns is-multiline is-flex">
-          <div class="column is-4 is-12-mobile">
-            <router-link to="/upload">
-              <div
-                id="rounded-cardC"
-                class="card is-vertical-center"
-              >
-                <div class="card-content fat has-text-centered" style="align-items: center">
-                     
-                    <i class="mdi mdi-plus" style="font-size: 80px"/>
-                  
+        <div class="problems" v-show="whichToShow == 'problems'">
+          <div class="columns is-multiline is-flex">
+            <div class="column is-4 is-12-mobile">
+              <router-link to="/upload">
+                <div id="rounded-cardC" class="card is-vertical-center">
+                  <div
+                    class="card-content fat has-text-centered"
+                    style="align-items: center"
+                  >
+                    <i class="mdi mdi-plus" style="font-size: 80px" />
                   </div>
-              </div>
-            </router-link>
-          </div>
-          <div
-            class="column is-4 is-12-mobile"
-            v-for="set in sets"
-            :key="set.index"
-          >
-           <Preview
-        
-        :priv="set.private"
-        
-        :title="set.set"
-        :datec="set.datee"
-        :link="set._id"
-      />
+                </div>
+              </router-link>
+            </div>
+            <div
+              class="column is-4 is-12-mobile"
+              v-for="set in sets"
+              :key="set.index"
+            >
+              <Preview
+                :priv="set.private"
+                :title="set.set"
+                :datec="set.datee"
+                :link="set._id"
+              />
+            </div>
           </div>
         </div>
-      </div>
       </transition>
     </div>
-    
   </section>
 </template>
 
@@ -97,18 +90,17 @@ export default {
     return {
       sets: [],
       contests: [],
-      whichToShow: "contests"
+      whichToShow: "contests",
     };
   },
-  methods:{
-      choose(){
-        if (this.whichToShow == "contests"){
-          this.whichToShow = "problems"
-        }else{
-          this.whichToShow="contests"
-        }
-      },
-      
+  methods: {
+    choose() {
+      if (this.whichToShow == "contests") {
+        this.whichToShow = "problems";
+      } else {
+        this.whichToShow = "contests";
+      }
+    },
   },
 
   mounted: function() {
@@ -134,7 +126,7 @@ export default {
             console.log(e);
           });
       } else {
-        console.log('oop')
+        console.log("oop");
         router.push("/login");
       }
     });
@@ -156,7 +148,8 @@ export default {
 .cool {
   background-color: white;
 }
-.card{
-  box-shadow: 0 0.5em 1em -0.125em rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.02)
+.card {
+  box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1),
+    0 0 0 1px rgba(10, 10, 10, 0.02);
 }
 </style>

@@ -2,26 +2,21 @@
   <div class="columns is-centered">
     <div class="column is-three-fifths">
       <div class="box">
-       
-          <div class="is-size-4">
-            <strong>Question {{ answer.index }}</strong>
+        <div class="is-size-4">
+          <strong>Question {{ answer.index }}</strong>
+        </div>
+
+        <div id="margina">
+          <vue-mathjax :formula="question.statement"></vue-mathjax>
+        </div>
+        <div class="columns is-centered">
+          <div class="column is-two-fifths">
+            <b-field>
+              <b-input placeholder="Answer" type="text" v-model="answer.field">
+              </b-input>
+            </b-field>
           </div>
-          
-          <div id="margina">
-            <vue-mathjax :formula="question.statement"></vue-mathjax>
-          </div>
-          <div class="columns is-centered">
-            <div class="column is-two-fifths">
-              <b-field>
-                <b-input
-                  placeholder="Answer"
-                  type="text"
-                  v-model="answer.field"
-                >
-                </b-input>
-              </b-field>
-            </div>
-          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -59,8 +54,8 @@ export default {
 #rounded-card {
   border-radius: 20px;
 }
-#margina{
+#margina {
   margin-top: 30px;
-  margin-bottom: 30px
+  margin-bottom: 30px;
 }
 </style>
