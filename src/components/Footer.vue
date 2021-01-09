@@ -9,7 +9,7 @@
   <div class="columns is-centered">
       <div class="column is-1 has-text-centered">
           <span class="is-size-7 has-text-grey" >
-     © 2020 Parachute
+     © 2020 Pencl
     </span>
     </div>
     <div class="column is-1 has-text-centered">

@@ -1,5 +1,5 @@
 {
-  "name": "Parachute",
+  "name": "Pencl",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -8,7 +8,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "buefy": "^0.8.20",
     "chart.js": "^2.9.3",
     "core-js": "^3.6.5",

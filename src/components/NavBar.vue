@@ -141,7 +141,7 @@ export default {
 
 <style>
 #bingbong {
-  background: url("../assets/parachutefunblue.png") no-repeat center center;
+  background: url("../assets/parachutefunpurple.png") no-repeat center center;
   background-size: 42px;
   width: 42px;
 padding: 10px;

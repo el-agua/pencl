@@ -188,7 +188,7 @@
 
               </div>
               <div  class="columns is-centered has-text-centered">
-                  <div class="is-size-6">Note: Using public sets may decrease the quality of your contest.</div>
+                  <div class="is-size-6">Warning: Using public sets may decrease the quality of your test.</div>
                 </div>
               <section class="section">
                <div class="columns is-centered has-text-centered">

@@ -2,12 +2,12 @@
   <section class="section">
     <div class="columns is-centered">
       <div class="is-size-3 has-text-black">
-               <strong>Contest Registration</strong>
+               <strong>Test Registration</strong>
               </div>
       </div>
       <div class="columns is-centered">
       <div class="is-size-4 has-text-dark">
-              Do you dare join the gauntlet?
+              Good luck!
               </div>
       </div>
     <div class="columns is-centered">

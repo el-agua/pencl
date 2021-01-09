@@ -9,8 +9,8 @@
           <img class="right-img" src="../assets/greater.png" />
 
           <h1 class="is-size-5" id="margini">
-            Create engaging online contests and problem sets with
-            <strong class="has-text-secondary">Parachute.</strong>
+            Create engaging online tests and problem sets with
+            <strong class="has-text-secondary">Pencl.</strong>
           </h1>
 
           <div class="buttons" id="learning">
@@ -40,11 +40,9 @@
                   <div class="columns is-centered">
                     <div class="column is-five-sixths">
                       <div class="is-size-6 has-text-white doublespace">
-                        <strong class="is-size-4 has-text-white">Create</strong> Parachute
-                        users can create fun and engaging problem sets. Users
-                        have the option to use the powerful typesetting tool
-                        LATEX. Don't know LATEX? That's ok, plain text is
-                        supported too!
+                        <strong class="is-size-4 has-text-white">Create</strong> Pencl
+                        users can create educational and engaging problem sets. 
+                        For math educators, typesetting tool LATEX is supported!
                       </div>
                 </div>
                 </div>
@@ -57,7 +55,7 @@
                     <div class="columns is-centered">
                       <div class="column is-five-sixths">
                         <div class="is-size-6 has-text-white doublespace">
-                          <strong class="is-size-4 has-text-white">Host</strong> Parachute
+                          <strong class="is-size-4 has-text-white">Host</strong> Pencl
                            users can host contests based on their problem sets. Some
                            features include leaderboards, registration, timers, and various contest managing features.
           
@@ -74,9 +72,8 @@
                     <div class="columns is-centered">
                       <div class="column is-five-sixths">
                         <div class="is-size-6 has-text-white doublespace">
-                          <strong class="is-size-4 has-text-white">Share</strong> Parachute
-                          users can share their problem sets with other users! Need practice problems?
-                          Search through a collection of problems made by Parachute users.
+                          <strong class="is-size-4 has-text-white">Share</strong> Pencl users can share their problem sets with other users! Need practice problems?
+                          Search through a collection of problems made by Kite users.
                         </div>
                       </div>
                     </div>
@@ -140,12 +137,12 @@ export default {
 }
 #rounded-cardA {
   
-  background-color: #C84630;
+  background-color: #ff8585;
   min-height: 224px;
 }
 #rounded-cardB {
   
-  background-color: #2B4570;
+  background-color: #583d72;
   min-height: 224px;
 }
 
