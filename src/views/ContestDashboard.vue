@@ -8,7 +8,7 @@
       </div>
       <div class="columns is-centered has-text-centered">
         <a class="is-size-5" :href="`/contest/${$route.params.id}`"
-          ><strong>Contest Page</strong></a
+          ><strong>Test Dashboard</strong></a
         >
       </div>
       <section class="section">
