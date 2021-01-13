@@ -82,7 +82,7 @@ export default {
                   for (let i = 0; i < this.questions.length; i++) {
                     this.answers.push("");
                   }
-                  if (obj.answers.length == 0) {
+                  if (obj.answers == null) {
                     console.log(obj);
                     for (let z = 0; z < this.questions.length; z++) {
                       this.existingAnswers.push({ field: "" });
