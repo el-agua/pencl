@@ -27,7 +27,7 @@ import { VueMathjax } from "vue-mathjax";
 //import { questionService } from "../services/questionService";
 export default {
   name: "DisplayQuestion",
-  props: ["number", "statement"],
+  props: ["number", "statement", "existingAnswer"],
   components: {
     "vue-mathjax": VueMathjax,
   },
@@ -35,7 +35,7 @@ export default {
     return {
       answer: {
         index: this.number,
-        field: "",
+        field: this.existingAnswer,
       },
       question: {
         statement: this.statement,

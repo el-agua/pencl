@@ -12,6 +12,7 @@
         v-for="question in questions"
         :key="question.id"
         :number="question.id"
+        :existingAnswer="existingAnswers[question.id-1]"
         :statement="question.statement"
       />
     </div>
@@ -47,6 +48,7 @@ export default {
       duration: 2400,
       questions: [],
       timerStart: Date.now(),
+      existingAnswers: [],
       counter: 0,
       submit: false,
       mathLoaded: false,
@@ -71,6 +73,7 @@ export default {
                 this.finishTest();
               } else {
                 this.timerStart = obj.timerStart;
+                this.existingAnswers = obj.answers;
                 console.log(obj);
                 this.duration = id.duration * 60;
                 questionService.getContestSet(id.setId).then((q) => {
