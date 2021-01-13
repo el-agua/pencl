@@ -12,7 +12,7 @@
         v-for="question in questions"
         :key="question.id"
         :number="question.id"
-        :existingAnswer="existingAnswers[question.id-1]"
+        :existingAnswer="existingAnswers[question.id - 1]"
         :statement="question.statement"
       />
     </div>
@@ -73,7 +73,7 @@ export default {
                 this.finishTest();
               } else {
                 this.timerStart = obj.timerStart;
-                this.existingAnswers = obj.answers;
+
                 console.log(obj);
                 this.duration = id.duration * 60;
                 questionService.getContestSet(id.setId).then((q) => {
@@ -81,6 +81,13 @@ export default {
                   this.questions = q.question;
                   for (let i = 0; i < this.questions.length; i++) {
                     this.answers.push("");
+                  }
+                  if (obj.answers == {}) {
+                    for (let z = 0; z < this.questions.length; z++) {
+                      this.existingAnswers.push({ field: "" });
+                    }
+                  } else {
+                    this.existingAnswers = obj.answers;
                   }
                   this.mathLoaded = true;
                   setInterval(() => {

@@ -35,7 +35,7 @@ export default {
     return {
       answer: {
         index: this.number,
-        field: this.existingAnswer,
+        field: this.existingAnswer.field,
       },
       question: {
         statement: this.statement,
