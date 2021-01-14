@@ -68,27 +68,6 @@
             </router-link>
           </div>
         </div>
-        <div class="columns is-centered has-text-centered">
-          <div class="is-size-3"><strong>Leaderboard:</strong></div>
-        </div>
-        <b-table
-          :data="submissionData"
-          v-if="submissionData.length != 0"
-          striped
-          hoverable
-        >
-          <template slot-scope="props">
-            <b-table-column field="index" label="Place" centered>
-              {{ props.index + 1 }}
-            </b-table-column>
-            <b-table-column field="displayName" label="Display Name" centered>
-              {{ props.row.displayName }}
-            </b-table-column>
-            <b-table-column field="score" label="Score" centered>
-              {{ props.row.score }}
-            </b-table-column>
-          </template>
-        </b-table>
         <div class="columns is-centered has-text-centered" v-else>
           <div class="is-size-6">No submissions yet!</div>
         </div>

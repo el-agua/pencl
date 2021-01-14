@@ -98,7 +98,7 @@ export default {
                       this.$refs.questionModel[i].sendAnswer();
                       console.log("Hello");
                     }
-                  }, 30000);
+                  }, 10000);
                 });
               }
             });
