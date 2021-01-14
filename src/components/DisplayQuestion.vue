@@ -1,6 +1,6 @@
 <template>
   <div class="columns is-centered">
-    <div class="column is-three-fifths">
+    <div class="column is-7">
       <div class="box">
         <div class="is-size-4">
           <strong>Question {{ answer.index }}</strong>

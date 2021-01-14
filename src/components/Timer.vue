@@ -1,9 +1,9 @@
 <template>
   <div class="columns is-centered">
-    <p class="is-size-5" @click="setTimer">
-      Remaining time: {{ Math.floor(timeSecs / 3600) }} hours
+    <p class="is-size-5 is-black" @click="setTimer">
+      <strong>Remaining time: {{ Math.floor(timeSecs / 3600) }} hours
       {{ Math.floor((timeSecs % 3600) / 60) }} minutes
-      {{ Math.floor(timeSecs % 60) }} seconds
+      {{ Math.floor(timeSecs % 60) }} seconds</strong>
     </p>
   </div>
 </template>
