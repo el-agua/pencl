@@ -14,9 +14,11 @@
           <strong>Description:</strong>
         </div>
       </div>
-      <div class="container">
-        <div id="predata" class="is-size-5">
-          <strong>{{ contestData.desc }}</strong>
+      <div id="margini">
+        <div class="container">
+          <div id="predata" class="is-size-5">
+            <strong>{{ contestData.desc }}</strong>
+          </div>
         </div>
       </div>
       <div class="columns is-centered has-text-centered">
